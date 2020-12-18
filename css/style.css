@@ -1,0 +1,40 @@
+/* *******************************************
+****** PROJECT SETUP
+******************************************* */
+
+/* VARIABLES */
+:root {
+  /* MAIN COLORS */
+  --main: black;
+  --secondary: white;
+  --accent: red;
+
+  /* FONTS */
+  --title: serif;
+  --text: aerial;
+}
+
+/* GLOBAL STYLES */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* outline: 2px solid gold; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title);
+}
+
+body {
+  font-family: var(--text);
+}
+
+/* *******************************************
+****** PROJECT STYLES
+******************************************* */
