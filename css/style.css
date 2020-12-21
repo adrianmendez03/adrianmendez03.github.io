@@ -31,6 +31,11 @@ h6 {
   font-family: var(--title);
 }
 
+main {
+  z-index: 0;
+  background-color: #E86B52;
+}
+
 body {
   font-family: var(--text);
 }
@@ -38,3 +43,50 @@ body {
 /* *******************************************
 ****** PROJECT STYLES
 ******************************************* */
+
+/* Nav */
+
+nav {
+  position: sticky;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* End of Nav */
+
+/* Landing Page */
+
+#landing-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  top: -58px;
+  background: #E86B52;
+}
+
+#bg-top {
+  height: 55vh;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(231, 80, 49, 1));
+}
+
+#bg-bottom {
+  height: 45vh;
+  background: linear-gradient( rgba(231, 80, 49, 0.75), rgba(255, 255, 255, 0));
+}
+
+#bg-bottom {
+  
+}
+
+/* End of Landing Page */
+
+/* Brand Statement */
+
+#primary-bg section:nth-child(1) {
+}
+
+/* End of Brand Statement */

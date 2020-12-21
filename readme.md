@@ -65,4 +65,5 @@ function reverse(string) {
 }
 ```
 ## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+- Making my landing page container sit under the nav bar. The solution was to set the position to relative and subtract the top by the size of the navbar
+- After I added background color to my landing page, it covered my navbar. My initial thought was to add a higher z index to the nav, sp I played with the z index to no avail. I searched why it wasn't having an effect on my navbar and turns out I had to give it a display other than static for it to work. I didn't have the display to static but who knows!
