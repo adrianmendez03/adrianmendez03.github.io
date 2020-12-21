@@ -20,15 +20,7 @@
   margin: 0;
   box-sizing: border-box;
   /* outline: 2px solid gold; */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--title);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -54,6 +46,7 @@ nav {
   justify-content: space-between;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
 }
 
 /* End of Nav */
@@ -78,15 +71,25 @@ nav {
   background: linear-gradient( rgba(231, 80, 49, 0.75), rgba(255, 255, 255, 0));
 }
 
-#bg-bottom {
-  
+#bg-bottom h2 {
+  position: relative;
+  top: -40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3.5em;
+  letter-spacing: 4px;
+  color: #f9ff47;
 }
 
 /* End of Landing Page */
 
 /* Brand Statement */
 
-#primary-bg section:nth-child(1) {
-}
+/* #primary-bg section:nth-child(1) {
+} */
 
 /* End of Brand Statement */
+
+#secondary-bg {
+  background-color: #ffffff;
+}
