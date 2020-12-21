@@ -31,6 +31,7 @@ Since I feel fairly comfortable in my Javascript abilities, I chose to really te
 - Project rendering/animations
 - Simple UX animations
 - CSS color and positioning
+- Form should open email when sumbmitted
 - HTML structure
 #### PostMVP 
 - Form validation
@@ -41,10 +42,10 @@ Since I feel fairly comfortable in my Javascript abilities, I chose to really te
 | Mobile Sidebar | H | 2hr | hr |
 | Hamburger Functionality | H | 1hr | hr |  
 | Project grid | H | 1hr|  hr | 
-| Flex in skills section| M | 1hr | hr|
+| Flexbox | M | 2hr | hr|
 | Responsive | M | 2hr | hr | hr |
 | Pallete color | H | 2hr | hr |
-| Total | H | 11hrs| hrs |
+| Total | H | 12hrs| hrs |
 #### PostMVP
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: | 
