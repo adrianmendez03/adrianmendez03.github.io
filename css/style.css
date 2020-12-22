@@ -28,6 +28,7 @@ main {
   background-color: #E86B52;
 }
 
+
 body {
   font-family: var(--text);
 }
@@ -35,7 +36,6 @@ body {
 /* *******************************************
 ****** PROJECT STYLES
 ******************************************* */
-
 /* Nav */
 
 nav {
@@ -55,7 +55,6 @@ nav {
 
 #landing-page {
   height: 100vh;
-  width: 100vw;
   position: relative;
   top: -58px;
   background: #E86B52;
@@ -83,12 +82,55 @@ nav {
 
 /* End of Landing Page */
 
-/* Brand Statement */
+/* Content */
 
-/* #primary-bg section:nth-child(1) {
-} */
+#primary-bg {
+  color: #fff;
+}
 
-/* End of Brand Statement */
+.content-format {
+  text-align: center;
+  margin: 0 45px 140px 45px;
+}
+
+.content-format h3 {
+  padding: 0 0 20px 0;
+  margin: 0 0 25px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* End of Content */
+
+/* Skills Section */
+
+.lists-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lists-container h2 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.lists-container ul {
+  list-style: none;
+}
+
+.lists-container li {
+  margin: 0 0 15px 0;
+  font-size: 12px;
+}
+
+.lists-container ul li:last-child {
+  margin: 0;
+}
+
+
+/* End of Skills Section */
 
 #secondary-bg {
   background-color: #ffffff;
