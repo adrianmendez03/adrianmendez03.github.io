@@ -132,6 +132,10 @@ nav {
 
 /* End of Skills Section */
 
+#secondary-bg {
+  background-color: #ffffff;
+}
+
 /* Projects */
 
 #secondary-bg section:nth-child(1) {
@@ -159,6 +163,28 @@ nav {
 
 /* End of Projects */
 
-#secondary-bg {
-  background-color: #ffffff;
+/* Form */
+
+.form-container {
+  display: flex;
+  justify-content: center;
 }
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container input, textarea {
+  margin-bottom: 5px;
+}
+
+#secondary-bg section:last-child {
+  margin-bottom: 100px;
+}
+
+/* End of Form */
+
+
