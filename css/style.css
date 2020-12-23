@@ -33,6 +33,10 @@ body {
   font-family: var(--text);
 }
 
+ul {
+  list-style: none;
+}
+
 /* *******************************************
 ****** PROJECT STYLES
 ******************************************* */
@@ -116,10 +120,6 @@ nav {
   text-transform: uppercase;
 }
 
-.lists-container ul {
-  list-style: none;
-}
-
 .lists-container li {
   margin: 0 0 15px 0;
   font-size: 12px;
@@ -131,6 +131,33 @@ nav {
 
 
 /* End of Skills Section */
+
+/* Projects */
+
+#secondary-bg section:nth-child(1) {
+  padding-top: 100px;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.projects-container ul {
+  list-style: none;
+}
+
+.projects-container li {
+  min-width: 200px;
+  min-height: 200px;
+  flex-grow: 1;
+  background-color: lightblue;
+  border-bottom: solid 1px white;
+}
+
+/* End of Projects */
 
 #secondary-bg {
   background-color: #ffffff;
