@@ -187,4 +187,21 @@ nav {
 
 /* End of Form */
 
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.1);
+  background-color: #2a2a2a;
+  padding: 25px;
+  font-size: 10px;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: row;
+}
+
+/* End of Footer */
 
