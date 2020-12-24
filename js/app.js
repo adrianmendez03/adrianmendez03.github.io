@@ -2,19 +2,6 @@
 // PULL AND RENDER DATA
 ///////////////////////
 
-const $navIcon = $("#nav-icon")
-const $menu = $("#menu")
-
-// $navIcon.click(e => {
-//     if ($menu.hasClass("closed")) {
-//         $menu.removeClass("closed").addClass("open")
-//     } else {
-//         $menu.removeClass("open").addClass("closed")
-//     }
-// })
-
-$navIcon.click(e => $menu.hasClass("closed") ? $menu.removeClass("closed").addClass("open") : $menu.removeClass("open").addClass("closed"))
-
 $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZgM5nNaFaelV8A0o/1/public/full?alt=json")
     .then(data => {
         console.log(data)
@@ -33,3 +20,23 @@ $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZ
         
         console.log(projects)
     })
+
+//////////////////////////////
+//// Mobile Nav Functionality
+/////////////////////////////
+
+const $logo = $("#logo")
+const $navIcon = $("#nav-icon")
+const $menu = $("#menu")
+
+$navIcon.click(e => {
+    if ($menu.hasClass("closed")) {
+        $menu.removeClass("closed").addClass("open")
+        $logo.addClass("open-color")
+        $navIcon.addClass("open-color")
+    } else {
+        $menu.removeClass("open").addClass("closed")
+        $logo.removeClass("open-color")
+        $navIcon.removeClass("open-color")
+    }
+})

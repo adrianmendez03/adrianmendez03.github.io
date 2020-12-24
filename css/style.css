@@ -31,6 +31,7 @@ main {
 
 body {
   font-family: var(--text);
+  transition: all 0.3s;
 }
 
 ul {
@@ -58,6 +59,15 @@ nav {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0);
   color: #ffffff;
+  transition: all 0.3s;
+}
+
+nav .open-color {
+  color: #E86B52;
+}
+
+nav .open-color div {
+  border-bottom: 3px solid #E86B52;
 }
 
 nav #logo {
@@ -77,11 +87,13 @@ nav .menu-background {
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  color: #E86B52;
+  background-color: #fff;
+  transition:  all 1s;
 }
 
 #menu li {
-  margin: 15px;
+  margin: 20px;
   text-align: center;
   text-transform: uppercase;
 }
