@@ -2,6 +2,19 @@
 // PULL AND RENDER DATA
 ///////////////////////
 
+const $navIcon = $("#nav-icon")
+const $menu = $("#menu")
+
+// $navIcon.click(e => {
+//     if ($menu.hasClass("closed")) {
+//         $menu.removeClass("closed").addClass("open")
+//     } else {
+//         $menu.removeClass("open").addClass("closed")
+//     }
+// })
+
+$navIcon.click(e => $menu.hasClass("closed") ? $menu.removeClass("closed").addClass("open") : $menu.removeClass("open").addClass("closed"))
+
 $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZgM5nNaFaelV8A0o/1/public/full?alt=json")
     .then(data => {
         console.log(data)
