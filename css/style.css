@@ -43,7 +43,9 @@ ul {
 /* Nav */
 
 nav {
-  position: sticky;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1;
   display: flex;
   flex-direction: row;
@@ -53,7 +55,21 @@ nav {
   color: #ffffff;
 }
 
+nav #logo {
+  margin: 5px 0;
+}
+
+nav .menu-background {
+  width: 25px;
+  margin: 5px 0;
+  border-bottom: 3px solid #fff;
+}
+
 /* End of Nav */
+
+/* section {
+  max-width: 800px;
+} */
 
 /* Landing Page */
 
@@ -76,12 +92,15 @@ nav {
 
 #bg-bottom h2 {
   position: relative;
+  width: 350px;
+  margin: auto;
   top: -40px;
   text-align: center;
   text-transform: uppercase;
   font-size: 3.5em;
   letter-spacing: 4px;
   color: #f9ff47;
+  box-shadow: 0px 50px 15px -30px rgba(0,0,0,0.5);
 }
 
 /* End of Landing Page */
@@ -155,7 +174,7 @@ nav {
 
 .projects-container li {
   min-width: 200px;
-  min-height: 200px;
+  min-height: 250px;
   flex-grow: 1;
   background-color: lightblue;
   border-bottom: solid 1px white;
