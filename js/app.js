@@ -17,8 +17,7 @@ $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZ
                 github: project.gsx$github.$t
             }
         })
-        
-        console.log(projects)
+        renderProj(projects)
     })
 
 //////////////////////////////
@@ -40,3 +39,18 @@ $navIcon.click(e => {
         $navIcon.removeClass("open-color")
     }
 })
+
+///////////////////////////////
+//// PROJECT RENDERING 
+///////////////////////////////
+
+const $projContainer = $(".projects-container")
+
+const renderProj  = projects => {
+    for (project of projects) {
+        const $li = $("<li>").html(`<div>${project.name}</div>`)
+        $projContainer.append($li)
+    }
+}
+
+

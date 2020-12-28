@@ -25,9 +25,8 @@
 
 main {
   z-index: 0;
-  background-color: #E86B52;
+  background-color: #e86b52;
 }
-
 
 body {
   font-family: var(--text);
@@ -63,11 +62,11 @@ nav {
 }
 
 nav .open-color {
-  color: #E86B52;
+  color: #e86b52;
 }
 
 nav .open-color div {
-  border-bottom: 3px solid #E86B52;
+  border-bottom: 3px solid #e86b52;
 }
 
 nav #logo {
@@ -87,9 +86,9 @@ nav .menu-background {
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  color: #E86B52;
+  color: #e86b52;
   background-color: #fff;
-  transition:  all 1s;
+  transition: all 1s;
 }
 
 #menu li {
@@ -118,7 +117,7 @@ nav .menu-background {
   height: 100vh;
   position: relative;
   top: -58px;
-  background: #E86B52;
+  background: #e86b52;
 }
 
 #bg-top {
@@ -128,7 +127,7 @@ nav .menu-background {
 
 #bg-bottom {
   height: 45vh;
-  background: linear-gradient( rgba(231, 80, 49, 0.75), rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(231, 80, 49, 0.75), rgba(255, 255, 255, 0));
 }
 
 #bg-bottom h2 {
@@ -141,7 +140,7 @@ nav .menu-background {
   font-size: 3.5em;
   letter-spacing: 4px;
   color: #f9ff47;
-  box-shadow: 0px 50px 15px -30px rgba(0,0,0,0.5);
+  box-shadow: 0px 50px 15px -30px rgba(0, 0, 0, 0.5);
 }
 
 /* End of Landing Page */
@@ -189,11 +188,11 @@ nav .menu-background {
   margin: 0;
 }
 
-
 /* End of Skills Section */
 
 #secondary-bg {
   background-color: #ffffff;
+  border-bottom: solid 1px white;
 }
 
 /* Projects */
@@ -206,7 +205,6 @@ nav .menu-background {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
 .projects-container ul {
@@ -237,7 +235,8 @@ nav .menu-background {
   max-width: 400px;
 }
 
-.form-container input, textarea {
+.form-container input,
+textarea {
   margin-bottom: 5px;
 }
 
@@ -264,4 +263,3 @@ footer ul {
 }
 
 /* End of Footer */
-
