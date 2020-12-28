@@ -203,6 +203,7 @@ nav .menu-background {
 
 .projects-container {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -212,8 +213,9 @@ nav .menu-background {
 }
 
 .projects-container li {
-  min-width: 200px;
+  min-width: 250px;
   min-height: 250px;
+  max-width: 300px;
   flex-grow: 1;
   background-color: lightblue;
   border-bottom: solid 1px white;
@@ -237,6 +239,7 @@ nav .menu-background {
 
 .form-container input,
 textarea {
+  padding: 5px;
   margin-bottom: 5px;
 }
 
