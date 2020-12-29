@@ -79,6 +79,15 @@ nav .menu-background {
   border-bottom: 3px solid #fff;
 }
 
+nav .top {
+  width: 50%;
+}
+
+nav .bottom {
+  margin-left: 50%;
+  width: 50%;
+}
+
 #menu {
   flex-direction: column;
   justify-content: center;
@@ -114,23 +123,20 @@ nav .menu-background {
 /* Landing Page */
 
 #landing-page {
-  height: 100vh;
+  height: 110vh;
   position: relative;
   top: -58px;
-  background-color: #222a68;
+  background: linear-gradient(-45deg, #222a68, #222a68, #99240a, #efa810);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 #bg-top {
   height: 55vh;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(119, 133, 172, 1));
 }
 
 #bg-bottom {
   height: 45vh;
-  background: linear-gradient(
-    rgba(119, 133, 172, 0.75),
-    rgba(255, 255, 255, 0)
-  );
 }
 
 #bg-bottom h2 {
@@ -152,6 +158,10 @@ nav .menu-background {
 
 #primary-bg {
   color: #eaf2ef;
+}
+
+#primary-bg section:nth-child(1) {
+  margin-top: 50px;
 }
 
 .content-format {
@@ -315,3 +325,15 @@ footer ul {
 }
 
 /* End of Footer */
+
+@keyframes gradient {
+  0% {
+    background-position: 10% 10%;
+  }
+  50% {
+    background-position: 75% 75%;
+  }
+  100% {
+    background-position: 10% 10%;
+  }
+}
