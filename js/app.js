@@ -48,7 +48,22 @@ const $projContainer = $(".projects-container")
 
 const renderProj  = projects => {
     for (project of projects) {
-        const $li = $("<li>").html(`<div>${project.name}</div>`)
+        const $li = $("<li>")
+        const $div = $("<div>").addClass("project")
+        $div.html(
+            `
+                <div class="project-content">
+                    <div class="project-content-top">
+                        <p>${project.name}</p>
+                        <p>These are some workds<p>
+                    </div>
+                    <div class="project-content-bottom">Learn More</div>
+                </div>
+   
+            `
+        )
+        $li.css("background-image", `url(${project.img})`)
+        $li.append($div)
         $projContainer.append($li)
     }
 }

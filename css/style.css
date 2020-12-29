@@ -218,7 +218,42 @@ nav .menu-background {
   max-width: 300px;
   flex-grow: 1;
   background-color: lightblue;
-  border-bottom: solid 1px white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.project {
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.project:hover {
+  opacity: 1;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 50px;
+}
+
+.project-content-top p:nth-child(1) {
+  font-size: 22px;
+  font-weight: bold;
+}
+.project-content-bottom {
+  width: 150px;
+  border: 2px solid red;
+  margin: auto;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 /* End of Projects */
