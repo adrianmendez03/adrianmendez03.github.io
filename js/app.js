@@ -55,7 +55,7 @@ const renderProj  = projects => {
                 <div class="project-content">
                     <div class="project-content-top">
                         <p>${project.name}</p>
-                        <p>These are some workds<p>
+                        <p>JavaScript<p>
                     </div>
                     <div class="project-content-bottom">Learn More</div>
                 </div>

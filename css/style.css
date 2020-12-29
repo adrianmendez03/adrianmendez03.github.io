@@ -25,7 +25,7 @@
 
 main {
   z-index: 0;
-  background-color: #e86b52;
+  background-color: #222a68;
 }
 
 body {
@@ -117,17 +117,20 @@ nav .menu-background {
   height: 100vh;
   position: relative;
   top: -58px;
-  background: #e86b52;
+  background-color: #222a68;
 }
 
 #bg-top {
   height: 55vh;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(231, 80, 49, 1));
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(119, 133, 172, 1));
 }
 
 #bg-bottom {
   height: 45vh;
-  background: linear-gradient(rgba(231, 80, 49, 0.75), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    rgba(119, 133, 172, 0.75),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 #bg-bottom h2 {
@@ -139,7 +142,7 @@ nav .menu-background {
   text-transform: uppercase;
   font-size: 3.5em;
   letter-spacing: 4px;
-  color: #f9ff47;
+  color: #eaf2ef;
   box-shadow: 0px 50px 15px -30px rgba(0, 0, 0, 0.5);
 }
 
@@ -148,7 +151,7 @@ nav .menu-background {
 /* Content */
 
 #primary-bg {
-  color: #fff;
+  color: #eaf2ef;
 }
 
 .content-format {
@@ -191,7 +194,7 @@ nav .menu-background {
 /* End of Skills Section */
 
 #secondary-bg {
-  background-color: #ffffff;
+  background-color: #eaf2ef;
   border-bottom: solid 1px white;
 }
 
@@ -217,7 +220,6 @@ nav .menu-background {
   min-height: 250px;
   max-width: 300px;
   flex-grow: 1;
-  background-color: lightblue;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -225,7 +227,7 @@ nav .menu-background {
 
 .project {
   height: 100%;
-  background-color: #fff;
+  background-color: #eaf2ef;
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -246,14 +248,26 @@ nav .menu-background {
   font-size: 22px;
   font-weight: bold;
 }
+
+.project-content-top p:nth-child(2) {
+  font-size: 16px;
+  color: #7785ac;
+}
+
 .project-content-bottom {
   width: 150px;
-  border: 2px solid red;
+  border: 2px solid #99240a;
   margin: auto;
   padding: 10px;
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
+  transition: all 0.4s;
+}
+
+.project-content-bottom:hover {
+  background-color: #99240a;
+  color: #eaf2ef;
 }
 
 /* End of Projects */
