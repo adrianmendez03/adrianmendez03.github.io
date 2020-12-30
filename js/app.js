@@ -77,3 +77,21 @@ const renderProj  = projects => {
 }
 
 
+///////////////////////////////
+/// PROJECT NAV ANIMATION
+///////////////////////////////
+
+const $projNav = $(".proj-nav").children()
+const $underline = $("hr")
+
+for (let i = 0; i < 4; i++) {
+    $projNav.eq(i).click(e => {
+        updateProjNav(e.target.id)
+    })
+}
+
+const updateProjNav = id => {
+    console.log(id)
+    $underline.removeAttr('id')
+    $underline.attr('id', `_${id}`)
+}
