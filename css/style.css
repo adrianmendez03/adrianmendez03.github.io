@@ -212,11 +212,41 @@ nav .menu-background {
 }
 
 .content-format h3 {
-  padding: 0 0 20px 0;
-  margin: 0 0 25px 0;
-  font-size: 14px;
+  margin: 0 0 10px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.content-format div:first-child {
+  margin: 0 0 20px 0;
+}
+
+.underline {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.underline div:nth-child(odd) {
+  height: 10px;
+  width: 12px;
+  background-color: #7785ac;
+}
+
+.underline div:nth-child(even) {
+  margin: 8px;
+  height: 5px;
+  width: 5px;
+  background-color: #7785ac;
+  transform: rotate(45deg) translateX(-5px) translateY(-5px);
+}
+
+.underline div:first-child {
+  transform: skew(-30deg, -30deg);
+}
+
+.underline div:last-child {
+  transform: skew(30deg, 30deg);
 }
 
 /* End of Content */
