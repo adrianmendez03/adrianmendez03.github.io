@@ -23,6 +23,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+  height: auto;
+  width: 100vw;
+}
+
 main {
   z-index: 0;
   background-color: #222a68;
@@ -51,6 +56,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  max-width: 1100px;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -200,6 +206,7 @@ nav .menu-background {
 }
 
 .content-format {
+  max-width: 850px;
   text-align: center;
   margin: 0 45px 140px 45px;
 }
@@ -360,6 +367,16 @@ footer ul {
 }
 
 /* End of Footer */
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    justify-content: center;
+  }
+  .content-format {
+    margin: 0 auto 140px auto;
+  }
+}
 
 @keyframes gradient {
   0% {

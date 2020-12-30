@@ -39,17 +39,20 @@
     <!-- ************************YOUR CODE**************************************** -->
     <script src="./js/components.js" defer></script>
     <script src="./js/app.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <nav>
-      <div id="logo">Logo</div>
-      <div id="nav-icon">
-        <div class="menu-background top-bottom"></div>
-        <div class="menu-background middle"></div>
-        <div class="menu-background top-bottom"></div>
-      </div>
-    </nav>
+    <header>
+      <nav>
+        <div id="logo">Logo</div>
+        <div id="nav-icon">
+          <div class="menu-background top-bottom"></div>
+          <div class="menu-background middle"></div>
+          <div class="menu-background top-bottom"></div>
+        </div>
+      </nav>
+    </header>
     <main>
       <div>
         <ul id="menu">
@@ -135,5 +138,9 @@
         <li><a href="#">Link</a></li>
       </ul>
     </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
