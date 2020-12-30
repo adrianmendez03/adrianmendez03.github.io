@@ -27,18 +27,26 @@ $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZ
 const $logo = $("#logo")
 const $navIcon = $("#nav-icon")
 const $menu = $("#menu")
+let menuOpen = false
 
 $navIcon.click(e => {
-    if ($menu.hasClass("closed")) {
-        $menu.removeClass("closed").addClass("open")
-        $logo.addClass("open-color")
-        $navIcon.addClass("open-color")
-    } else {
-        $menu.removeClass("open").addClass("closed")
+    console.log(menuOpen)
+    if (menuOpen) {
+        $menu.removeClass("open")
         $logo.removeClass("open-color")
         $navIcon.removeClass("open-color")
+        menuOpen = false
+    } else {
+        $menu.addClass("open")
+        $logo.addClass("open-color")
+        $navIcon.addClass("open-color")
+        menuOpen = true
     }
 })
+
+/////////////////////////////
+/// NAVIGATION ANIMATION
+/////////////////////////////
 
 ///////////////////////////////
 //// PROJECT RENDERING 

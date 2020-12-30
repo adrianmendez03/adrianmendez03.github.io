@@ -62,14 +62,18 @@ nav {
 }
 
 nav .open-color {
-  color: #e86b52;
+  color: #7785ac;
 }
 
 nav .open-color div {
-  border-bottom: 3px solid #e86b52;
+  border-bottom: 3px solid #99240a;
 }
 
-nav #logo {
+#logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
   margin: 5px 0;
 }
 
@@ -79,25 +83,59 @@ nav .menu-background {
   border-bottom: 3px solid #fff;
 }
 
-nav .top {
-  width: 50%;
+#nav-icon {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
 }
 
-nav .bottom {
-  margin-left: 50%;
-  width: 50%;
+#nav-icon .top-bottom {
+  width: 60%;
+  transition: all 0.3s ease-in-out;
 }
+
+#nav-icon .middle {
+  transition: all 0.3s ease-in-out;
+}
+
+#nav-icon .top-bottom:last-child {
+  margin-left: 50%;
+}
+
+/* HAMBURGER ANIMATION */
+
+#nav-icon.open-color .top-bottom:first-child {
+  width: 26px;
+  transform: translate(0px, 8px) rotate(225deg);
+}
+
+#nav-icon.open-color .top-bottom:last-child {
+  opacity: 0;
+  transform: rotate(225deg);
+}
+
+#nav-icon.open-color .middle {
+  width: 26px;
+  transform: rotate(-225deg);
+}
+
+/* END OF HAMBURGER ANIMATION */
 
 #menu {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   position: fixed;
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  color: #e86b52;
-  background-color: #fff;
-  transition: all 1s;
+  color: #7785ac;
+  background: linear-gradient(-45deg, #222a68, #eaf2ef, #eaf2ef);
+  background-size: 150% 150%;
+  background-position: 100% 75%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
 }
 
 #menu li {
@@ -106,12 +144,9 @@ nav .bottom {
   text-transform: uppercase;
 }
 
-.open {
-  display: flex;
-}
-
-.closed {
-  display: none;
+#menu.open {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* End of Nav */
