@@ -23,12 +23,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  max-width: 100vw;
+}
+
 header {
   height: auto;
   width: 100vw;
 }
 
 main {
+  width: 100%;
   z-index: 0;
   background-color: #222a68;
 }
@@ -55,7 +60,7 @@ a {
 nav {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   max-width: 1100px;
   z-index: 2;
   display: flex;
@@ -81,6 +86,27 @@ nav .open-color div {
   justify-content: center;
   cursor: pointer;
   margin: 5px 0;
+}
+
+#logo .logo-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#logo .logo-content div {
+  width: 60px;
+  font-size: 26px;
+  line-height: 26px;
+}
+#logo .logo-content span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+#logo .open-color {
+  color: black;
 }
 
 nav .menu-background {
@@ -164,6 +190,9 @@ nav .menu-background {
 /* Landing Page */
 
 #landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 110vh;
   position: relative;
   top: -58px;
@@ -172,25 +201,37 @@ nav .menu-background {
   animation: gradient 15s ease infinite;
 }
 
-#bg-top {
-  height: 55vh;
-}
-
-#bg-bottom {
-  height: 45vh;
-}
-
-#bg-bottom h2 {
-  position: relative;
-  width: 350px;
-  margin: auto;
-  top: -40px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 3.5em;
-  letter-spacing: 4px;
+.logo {
+  display: flex;
+  flex-direction: column;
   color: #eaf2ef;
-  box-shadow: 0px 50px 15px -30px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.logo-content div {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  line-height: 40px;
+  border: 5px solid;
+  border-image-source: url("../images/gradient.jpg");
+  border-image-slice: 30 60;
+  font-size: 50px;
+  text-align: center;
+}
+
+.subtext {
+  padding: 2px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: right;
 }
 
 /* End of Landing Page */
@@ -471,4 +512,10 @@ footer ul {
   100% {
     background-position: 10% 10%;
   }
+}
+
+/*  */
+
+.black-text .logo-content {
+  color: rgba(0, 0, 0, 0.8) !important;
 }
