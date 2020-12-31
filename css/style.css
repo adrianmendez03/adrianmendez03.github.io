@@ -342,6 +342,7 @@ nav .menu-background {
 }
 
 .projects-container li {
+  white-space: nowrap;
   min-width: 250px;
   min-height: 250px;
   max-width: 300px;
@@ -352,6 +353,7 @@ nav .menu-background {
 }
 
 .project {
+  position: relative;
   height: 100%;
   background-color: #eaf2ef;
   opacity: 0;
@@ -362,12 +364,19 @@ nav .menu-background {
   opacity: 1;
 }
 
+.gone {
+  display: none;
+  transform: scale(0.25);
+  transition: all 0.3s;
+}
+
 .project-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
   padding: 50px;
+  transition: all 0.3s;
 }
 
 .project-content-top p:nth-child(1) {

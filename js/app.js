@@ -14,7 +14,8 @@ $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZ
                 img: project.gsx$img.$t,
                 desc: project.gsx$description.$t,
                 live: project.gsx$live.$t, 
-                github: project.gsx$github.$t
+                github: project.gsx$github.$t,
+                tech: project.gsx$tech.$t
             }
         })
         renderProj(projects)
@@ -53,17 +54,19 @@ $navIcon.click(e => {
 ///////////////////////////////
 
 const $projContainer = $(".projects-container")
+let $projects
 
 const renderProj  = projects => {
     for (project of projects) {
-        const $li = $("<li>")
+        console.log(project)
+        const $li = $("<li>").addClass(`${project.tech}`)
         const $div = $("<div>").addClass("project")
         $div.html(
             `
                 <div class="project-content">
                     <div class="project-content-top">
                         <p>${project.name}</p>
-                        <p>JavaScript<p>
+                        <p>${project.desc}<p>
                     </div>
                     <div class="project-content-bottom">Learn More</div>
                 </div>
@@ -74,12 +77,13 @@ const renderProj  = projects => {
         $li.append($div)
         $projContainer.append($li)
     }
+    $projects = $projContainer.children()
 }
 
 
-///////////////////////////////
-/// PROJECT NAV ANIMATION
-///////////////////////////////
+///////////////////////////////////////
+/// PROJECT NAV FUNCTIONALITY ANIMATION
+///////////////////////////////////////
 
 const $projNav = $(".proj-nav").children()
 const $underline = $("hr")
@@ -87,11 +91,22 @@ const $underline = $("hr")
 for (let i = 0; i < 4; i++) {
     $projNav.eq(i).click(e => {
         updateProjNav(e.target.id)
+        filterProjects(e.target.id)
     })
 }
 
 const updateProjNav = id => {
-    console.log(id)
     $underline.removeAttr('id')
     $underline.attr('id', `_${id}`)
+}
+
+const filterProjects = category => {
+    for (let i = 0; i < $projects.length; i++) {
+        const $project = $projects.eq(i)
+        if ($project.hasClass(category) || category === "all") {
+            $project.removeClass("gone")
+        } else {
+            $project.addClass("gone")
+        }
+    }
 }
