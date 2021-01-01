@@ -77,7 +77,7 @@ nav .open-color {
 }
 
 nav .open-color div {
-  border-bottom: 3px solid #99240a;
+  border-bottom: 3px solid #99240a !important;
 }
 
 #logo {
@@ -213,6 +213,7 @@ nav .menu-background {
   display: flex;
   flex-direction: column;
   margin: auto;
+  transition: all 0.3s;
 }
 
 .logo-content div {
@@ -516,6 +517,14 @@ footer ul {
 
 /*  */
 
+.dark-text .logo-content {
+  color: rgba(0, 0, 0, 0.8);
+}
+
 .black-text .logo-content {
-  color: rgba(0, 0, 0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.black-text .menu-background {
+  border-color: rgba(0, 0, 0, 0.8);
 }

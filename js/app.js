@@ -4,8 +4,6 @@
 
 $.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZgM5nNaFaelV8A0o/1/public/full?alt=json")
     .then(data => {
-        console.log(data)
-
         const rawProjects = data.feed.entry
 
         const projects = rawProjects.map(project => {
@@ -31,15 +29,14 @@ const $menu = $("#menu")
 let menuOpen = false
 
 $navIcon.click(e => {
-    console.log(menuOpen)
     if (menuOpen) {
         $menu.removeClass("open")
-        $logo.removeClass("open-color")
+        $logo.removeClass("black-text")
         $navIcon.removeClass("open-color")
         menuOpen = false
     } else {
         $menu.addClass("open")
-        $logo.addClass("open-color")
+        $logo.addClass("black-text")
         $navIcon.addClass("open-color")
         menuOpen = true
     }
@@ -58,7 +55,6 @@ let $projects
 
 const renderProj  = projects => {
     for (project of projects) {
-        console.log(project)
         const $li = $("<li>").addClass(`${project.tech}`)
         const $div = $("<div>").addClass("project")
         $div.html(
@@ -110,3 +106,20 @@ const filterProjects = category => {
         }
     }
 }
+
+////////////////////////
+/// SCROLLING 
+////////////////////////
+
+const $secondaryBgPos = $("#secondary-bg").position().top
+
+$(window).scroll(() => {
+    let $scrollPos = $(window).scrollTop()
+    if ($scrollPos + 54 > $secondaryBgPos) {
+        $logo.addClass("dark-text")
+        $navIcon.addClass("black-text")
+    } else {
+        $logo.removeClass("dark-text")
+        $navIcon.removeClass("black-text")
+    }
+})
