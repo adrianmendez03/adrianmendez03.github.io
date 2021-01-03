@@ -161,7 +161,7 @@ nav .menu-background {
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  color: #7785ac;
+  color: #000;
   background: linear-gradient(-45deg, #222a68, #eaf2ef, #eaf2ef);
   background-size: 150% 150%;
   background-position: 100% 75%;
