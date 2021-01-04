@@ -25,6 +25,7 @@
 
 html {
   max-width: 100vw;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -433,18 +434,9 @@ nav .menu-background {
 
 .project-content-bottom {
   width: 150px;
-  border: 2px solid #99240a;
-  margin: auto;
   padding: 10px;
+  margin: auto;
   font-size: 14px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.4s;
-}
-
-.project-content-bottom:hover {
-  background-color: #99240a;
-  color: #eaf2ef;
 }
 
 /* End of Projects */
@@ -473,6 +465,17 @@ textarea {
   margin-bottom: 100px;
 }
 
+.form-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.submit {
+  width: 100px;
+  padding: 5px;
+}
+
 /* End of Form */
 
 /* Footer */
@@ -480,7 +483,7 @@ textarea {
 footer {
   display: flex;
   justify-content: space-between;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
   background-color: #2a2a2a;
   padding: 25px;
   font-size: 10px;
@@ -491,7 +494,81 @@ footer ul {
   flex-direction: row;
 }
 
+footer ul li {
+  margin: 0 10px 0 10px;
+  transition: all 0.3s;
+}
+
+footer ul li:hover {
+  color: #fff;
+}
+
 /* End of Footer */
+
+/* MODAL */
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.modal-container {
+  height: 350px;
+  width: 250px;
+  background-color: #eaf2ef;
+}
+
+.modal-image {
+  height: 120px;
+  width: 100%;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 200px;
+}
+
+.modal-header {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.modal-desc {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.modal-links .button {
+  font-size: 14px;
+  padding: 5px;
+}
+
+
+/* END OF MODAL */
+
+.button {
+  border: 2px solid #99240a;
+  background-color: #eaf2ef;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: #99240a;
+  color: #eaf2ef;
+}
 
 @media (min-width: 1024px) {
   header {
@@ -500,6 +577,33 @@ footer ul {
   }
   .content-format {
     margin: 0 auto 140px auto;
+  }
+
+  .modal-container {
+    height: 450px;
+    width: 325px;
+  }
+  
+  .modal-image {
+    height: 200px;
+    width: 100%;
+  }
+  
+  .modal-header {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .modal-desc {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .modal-links .button {
+    font-size: 16px;
+    padding: 5px;
+    margin: 0 10px 0 10px;
   }
 }
 

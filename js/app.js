@@ -28,7 +28,7 @@ const $navIcon = $("#nav-icon")
 const $menu = $("#menu")
 let menuOpen = false
 
-$navIcon.click(e => {
+const menuFunctionality = () => {
     if (menuOpen) {
         $menu.removeClass("open")
         $logo.removeClass("black-text")
@@ -40,6 +40,14 @@ $navIcon.click(e => {
         $navIcon.addClass("open-color")
         menuOpen = true
     }
+}
+
+$navIcon.click(e => {
+    menuFunctionality()
+})
+
+$("#menu").children().click(e => {
+    menuFunctionality()
 })
 
 /////////////////////////////
@@ -54,26 +62,56 @@ const $projContainer = $(".projects-container")
 let $projects
 
 const renderProj  = projects => {
+    let i = 0
     for (project of projects) {
+        let j = i
         const $li = $("<li>").addClass(`${project.tech}`)
         const $div = $("<div>").addClass("project")
-        $div.html(
+        const $content = $("<div>").addClass("project-content")
+        $content.html(
             `
-                <div class="project-content">
-                    <div class="project-content-top">
-                        <p>${project.name}</p>
-                        <p>${project.desc}<p>
-                    </div>
-                    <div class="project-content-bottom">Learn More</div>
+                <div class="project-content-top">
+                    <p>${project.name}</p>
+                    <p>${project.desc}<p>
                 </div>
-   
             `
         )
+        const $button = $("<div>").addClass("project-content-bottom button").text("Learn More")
+        $button.click(e => {
+            renderModal(projects[j])
+        })
+        $content.append($button)
+        $div.append($content)
         $li.css("background-image", `url(${project.img})`)
         $li.append($div)
         $projContainer.append($li)
+        i++
     }
     $projects = $projContainer.children()
+}
+
+const renderModal = project => {
+    const $modal = $("<div>").addClass("modal")
+    const $modalContent = $("<div>").addClass("modal-container")
+    $modalContent.html(
+        `
+            <img class="modal-image" src=${project.img}></img>
+            <div class="modal-content">
+                <div>
+                    <p class="modal-header">${project.name}</p>
+                    <p class="modal-desc">${project.desc}</p>
+                </div>
+                <div class="modal-links">
+                    <a class="button" href="${project.live}" target="_blank">Live Demo</a>
+                    <a class="button" href="${project.github}" target="_blank">View Code</a>
+                </div>
+            </div>
+        `
+    )
+    $modalContent.click(e => e.stopPropagation())
+    $modal.click(e => $modal.remove())
+    $modal.append($modalContent)
+    $("body").append($modal)
 }
 
 

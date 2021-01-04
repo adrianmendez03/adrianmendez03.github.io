@@ -39,6 +39,7 @@
     <!-- ************************YOUR CODE**************************************** -->
     <script src="./js/components.js" defer></script>
     <script src="./js/app.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -46,12 +47,12 @@
       <nav>
         <div id="logo">
           <div class="logo">
-            <div class="logo-content">
+            <a class="logo-content" href="#landing-page">
               <div>
                 AM
               </div>
               <span class="subtext">Software Engineer</span>
-            </div>
+            </a>
           </div>
         </div>
         <div id="nav-icon">
@@ -64,11 +65,11 @@
     <main>
       <div>
         <ul id="menu">
-          <li><a href="#">Statement</a></li>
-          <li><a href="#">Skills</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#primary-bg">Statement</a></li> 
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div id="landing-page">
@@ -83,7 +84,7 @@
         </div>
       </div>
       <div id="primary-bg">
-        <section class="content-format">
+        <section class="content-format" id="statement">
           <div class="content-header">
             <h3>Statement</h3>
             <div class="underline">
@@ -98,7 +99,7 @@
             iure esse odit? Eligendi, accusamus similique!
           </p>
         </section>
-        <section class="content-format">
+        <section class="content-format" id="skills">
           <div class="content-header">
             <h3>Skills</h3>
             <div class="underline">
@@ -130,7 +131,7 @@
         </section>
       </div>
       <div id="secondary-bg">
-        <section class="content-format">
+        <section class="content-format" id="projects">
           <div class="content-header">
             <h3>Projects</h3>
             <div class="underline">
@@ -154,7 +155,7 @@
           </ul>
         </section>
         <section class="content-format">
-          <div class="content-header">
+          <div class="content-header" id="about">
             <h3>About</h3>
             <div class="underline">
               <div></div>
@@ -169,7 +170,7 @@
             exercitationem, libero ducimus facere officia aperiam placeat commodi quibusdam suscipit?
           </p>
         </section>
-        <section class="content-format">
+        <section class="content-format" id="contacts">
           <div class="content-header">
             <h3>Contact</h3>
             <div class="underline">
@@ -183,19 +184,17 @@
               <input type="text" placeholder="Name">
               <input type="email"placeholder="Email">
               <textarea name="message" id="" cols="30" rows="10" placeholder="Leave your message here"></textarea>
-              <button>Submit</button>
+              <div><button class="button submit">Submit</button></div>
             </form>
           </div>
         </section>
       </div>
     </main>
     <footer>
-      <p>Adrian Mendez 2020</p>
+      <p>&#169 Adrian Mendez 2020</p>
       <ul>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#"><i class="fab fa-github fa-lg"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a></li>
       </ul>
     </footer>
   </body>
