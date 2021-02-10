@@ -520,13 +520,13 @@ footer ul li:hover {
 }
 
 .modal-container {
-  height: 350px;
-  width: 250px;
+  height: auto;
+  width: 300px;
   background-color: #eaf2ef;
 }
 
 .modal-image {
-  height: 120px;
+  height: 160px;
   width: 100%;
 }
 
@@ -536,7 +536,7 @@ footer ul li:hover {
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  height: 200px;
+  height: 285px;
 }
 
 .modal-header {
@@ -546,11 +546,20 @@ footer ul li:hover {
 
 .modal-desc {
   margin-top: 20px;
-  font-size: 12px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.modal-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 250px;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .modal-links .button {
-  font-size: 14px;
   padding: 5px;
 }
 
@@ -580,7 +589,7 @@ footer ul li:hover {
   }
 
   .modal-container {
-    height: 450px;
+    height: auto;
     width: 325px;
   }
   

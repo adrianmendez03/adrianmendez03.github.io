@@ -2,18 +2,16 @@
 // PULL AND RENDER DATA
 ///////////////////////
 
-$.ajax("https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZgM5nNaFaelV8A0o/1/public/full?alt=json")
+$.ajax("https://your-projects-api.herokuapp.com/projects")
     .then(data => {
-        const rawProjects = data.feed.entry
-
-        const projects = rawProjects.map(project => {
+        const projects = data.map(project => {
             return {
-                name: project.gsx$name.$t,
-                img: project.gsx$img.$t,
-                desc: project.gsx$description.$t,
-                live: project.gsx$live.$t, 
-                github: project.gsx$github.$t,
-                tech: project.gsx$tech.$t
+                name: project.name,
+                img: project.image,
+                desc: project.description,
+                live: project.demo, 
+                github: project.repo,
+                tech: project.tech
             }
         })
         renderProj(projects)
@@ -72,7 +70,6 @@ const renderProj  = projects => {
             `
                 <div class="project-content-top">
                     <p>${project.name}</p>
-                    <p>${project.desc}<p>
                 </div>
             `
         )
