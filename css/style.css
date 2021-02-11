@@ -78,7 +78,7 @@ nav .open-color {
 }
 
 nav .open-color div {
-  border-bottom: 3px solid #99240a !important;
+  border-bottom: 3px solid #d4330f !important;
 }
 
 #logo {
@@ -560,7 +560,8 @@ footer ul li:hover {
 }
 
 .modal-links .button {
-  padding: 5px;
+  font-size: 12px;
+  padding: 6px 12px;
 }
 
 
@@ -610,8 +611,8 @@ footer ul li:hover {
   }
   
   .modal-links .button {
-    font-size: 16px;
-    padding: 5px;
+    font-size: 12px;
+    padding: 6px 12px;
     margin: 0 10px 0 10px;
   }
 }
