@@ -185,11 +185,11 @@
             </div>
           </div>
           <div class="form-container">
-            <form action="submit">
-              <input type="text" placeholder="Name">
-              <input type="email"placeholder="Email">
-              <textarea name="message" id="" cols="30" rows="10" placeholder="Leave your message here"></textarea>
-              <div><button class="button submit">Submit</button></div>
+            <form action="contactform.php" method="post">
+              <input type="text" name="name" id="name" placeholder="Name">
+              <input type="email" name="mail" id="mail" placeholder="Email">
+              <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave your message here"></textarea>
+              <div><button name="submit" type="submit" class="button submit">Send</button></div>
             </form>
           </div>
         </section>
