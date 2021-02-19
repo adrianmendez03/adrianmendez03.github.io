@@ -615,30 +615,8 @@ footer ul li:hover {
   }
 
   .modal-container {
-    height: auto;
-    width: 325px;
-  }
-  
-  .modal-image {
-    height: 200px;
-    width: 100%;
-  }
-  
-  .modal-header {
-    margin: 10px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .modal-desc {
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  
-  .modal-links .button {
-    font-size: 12px;
-    padding: 6px 12px;
-    margin: 0 10px 0 10px;
+    height: 400px;
+    width: 400px;
   }
 }
 
