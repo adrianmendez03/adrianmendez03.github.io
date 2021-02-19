@@ -5,9 +5,9 @@
 /* VARIABLES */
 :root {
   /* MAIN COLORS */
-  --main: black;
-  --secondary: white;
-  --accent: red;
+  --main: #222a68;
+  --secondary: #eaf2ef;
+  --accent: #99240a;
 
   /* FONTS */
   --title: serif;
@@ -36,7 +36,7 @@ header {
 main {
   width: 100%;
   z-index: 0;
-  background-color: #222a68;
+  background-color: var(--main);
 }
 
 body {
@@ -78,7 +78,7 @@ nav .open-color {
 }
 
 nav .open-color div {
-  border-bottom: 3px solid #d4330f !important;
+  border-bottom: 3px solid var(--accent) !important;
 }
 
 #logo {
@@ -163,7 +163,7 @@ nav .menu-background {
   width: 100vw;
   height: 100vh;
   color: #000;
-  background: linear-gradient(-45deg, #222a68, #eaf2ef, #eaf2ef);
+  background: linear-gradient(-45deg, var(--main), var(--secondary), var(--secondary));
   background-size: 150% 150%;
   background-position: 100% 75%;
   visibility: hidden;
@@ -197,7 +197,7 @@ nav .menu-background {
   height: 110vh;
   position: relative;
   top: -58px;
-  background: linear-gradient(-45deg, #222a68, #222a68, #99240a, #efa810);
+  background: linear-gradient(-45deg, var(--main), var(--main), var(--accent), #efa810);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -205,7 +205,7 @@ nav .menu-background {
 .logo {
   display: flex;
   flex-direction: column;
-  color: #eaf2ef;
+  color: var(--secondary);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -241,7 +241,7 @@ nav .menu-background {
 /* Content */
 
 #primary-bg {
-  color: #eaf2ef;
+  color: var(--secondary);
 }
 
 #primary-bg section:nth-child(1) {
@@ -275,7 +275,7 @@ nav .menu-background {
   margin: 8px;
   height: 5px;
   width: 5px;
-  background-color: #99240a;
+  background-color: var(--accent);
   transform: rotate(45deg);
 }
 
@@ -314,8 +314,8 @@ nav .menu-background {
 /* End of Skills Section */
 
 #secondary-bg {
-  background-color: #eaf2ef;
-  border-bottom: solid 1px white;
+  background-color: var(--secondary);
+  border-bottom: solid 1px var(--secondary);
 }
 
 /* Projects */
@@ -353,7 +353,7 @@ nav .menu-background {
   height: 4px;
   width: 33.35px;
   margin: 4px 0 0 2px;
-  background-color: #99240a;
+  background-color: var(--secondary);
   border: none;
   transition: all 0.3s;
 }
@@ -407,7 +407,7 @@ nav .menu-background {
 .project {
   position: relative;
   height: 100%;
-  background-color: #eaf2ef;
+  background-color: var(--secondary);
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -468,6 +468,26 @@ nav .menu-background {
 textarea {
   padding: 5px;
   margin-bottom: 5px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.form-container textarea {
+  border: 2px solid var(--accent);
+}
+
+.form-container input {
+  padding: 15px 5px 5px 5px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.form-container input::-webkit-input-placeholder {
+  transition: all 0.3s;
+}
+
+.form-container input:focus::-webkit-input-placeholder {
+  transform: translate(-40px, -15px) scale(0.75);
 }
 
 #secondary-bg section:last-child {
