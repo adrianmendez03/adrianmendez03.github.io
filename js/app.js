@@ -89,10 +89,9 @@ const renderProj  = projects => {
 
 const renderModal = project => {
     const $modal = $("<div>").addClass("modal")
-    const $modalContent = $("<div>").addClass("modal-container")
+    const $modalContent = $("<div>").addClass("modal-container").css("background", `url(${project.img})`)
     $modalContent.html(
         `
-            <img class="modal-image" src=${project.img}></img>
             <div class="modal-content">
                 <div>
                     <p class="modal-header">${project.name}</p>

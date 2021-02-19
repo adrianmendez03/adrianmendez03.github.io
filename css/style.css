@@ -529,23 +529,21 @@ footer ul li:hover {
 }
 
 .modal-container {
-  height: auto;
+  height: 600px;
   width: 300px;
-  background-color: #eaf2ef;
-}
-
-.modal-image {
-  height: 160px;
-  width: 100%;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 .modal-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
   align-items: center;
-  height: 285px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
 }
 
 .modal-header {
@@ -578,7 +576,7 @@ footer ul li:hover {
 
 .button {
   border: 2px solid #99240a;
-  background-color: #eaf2ef;
+  background-color: transparent;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s;
