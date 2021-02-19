@@ -132,6 +132,7 @@ const updateProjNav = id => {
 }
 
 const filterProjects = category => {
+    console.log(category)
     for (let i = 0; i < $projects.length; i++) {
         const $project = $projects.eq(i)
         if ($project.hasClass(category) || category === "all") {
