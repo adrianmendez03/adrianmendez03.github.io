@@ -187,7 +187,8 @@
           <div class="form-container">
             <form action="contactform.php" method="post">
               <input type="text" name="name" id="name" placeholder="Name">
-              <input type="email" name="mail" id="mail" placeholder="Email">
+              <input type="email" name="email" id="mail" placeholder="Email">
+              <input type="text" name="subject" id="subject" placeholder="Subject">
               <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave your message here"></textarea>
               <div><button name="submit" type="submit" class="button submit">Send</button></div>
             </form>
