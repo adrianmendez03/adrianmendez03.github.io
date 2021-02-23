@@ -1,3 +1,21 @@
+<?php
+  if(!isset($name)) {
+    $name = '';
+  }
+
+  if(!isset($mail)) {
+    $mail = '';
+  }
+
+  if(!isset($subject)) {
+    $subject = '';
+  }
+
+  if(!isset($txt)) {
+    $txt = '';
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -186,10 +204,22 @@
           </div>
           <div class="form-container">
             <form action="contactform.php" method="post">
-              <input type="text" name="name" id="name" placeholder="Name">
-              <input type="email" name="email" id="mail" placeholder="Email">
-              <input type="text" name="subject" id="subject" placeholder="Subject">
-              <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave your message here"></textarea>
+              <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($name) ?>" required>
+              <?php if(isset($name_error)) { ?>
+                <p><?php echo $name_error ?></p>
+              <?php } ?>
+              <input type="email" name="email" id="mail" placeholder="Email" value="<?php echo htmlspecialchars($mail) ?>" required>
+              <?php if(isset($mail_error)) { ?>
+                <p><?php echo $mail_error ?></p>
+              <?php } ?>
+              <input type="text" name="subject" id="subject" placeholder="Subject" value="<?php echo htmlspecialchars($subject) ?>" required>
+              <?php if(isset($subject_error)) { ?>
+                <p><?php echo $subject_error ?></p>
+              <?php } ?>
+              <textarea name="message" id="message" cols="30" rows="10" placeholder="Leave your message here" value="<?php echo htmlspecialchars($txt) ?>" required></textarea>
+              <?php if(isset($txt_error)) {?>
+                <p><?php echo $txt_error ?></p>
+              <?php } ?>
               <div><button name="submit" type="submit" class="button submit">Send</button></div>
             </form>
           </div>
