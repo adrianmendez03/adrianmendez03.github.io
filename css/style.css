@@ -395,10 +395,10 @@ nav .menu-background {
 
 .projects-container li {
   white-space: nowrap;
-  min-width: 250px;
+  min-width: 270px;
   min-height: 250px;
-  max-width: 300px;
-  flex-grow: 1;
+  max-width: 270px;
+  /* flex-grow: 1; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
