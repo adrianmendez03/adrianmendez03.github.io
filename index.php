@@ -59,6 +59,7 @@
     <script src="./js/app.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./images/logo.png">
   </head>
   <body>
     <header>
@@ -136,8 +137,6 @@
                 <li><i class="fab fa-js-square"></i>JavaScript</li>
                 <li><i class="fab fa-js-square"></i>jQuery</li>
                 <li><i class="fab fa-react"></i>React</li>
-                <li><i class="far fa-gem"></i>Ruby</li>
-                <li><i class="far fa-gem"></i>Rails</li>
               </ul>
             </div>
             <div class="list">
@@ -147,6 +146,8 @@
                 <li><i class="fab fa-node-js"></i>Express.JS</li>
                 <li><i class="fas fa-database"></i>MongoDB</li>
                 <li><i class="fab fa-python"></i>Python</li>
+                <li><i class="far fa-gem"></i>Ruby</li>
+                <li><i class="far fa-gem"></i>Rails</li>
                 <li><i class="fas fa-database"></i>PostgresQL</li>
               </ul>
             </div>
