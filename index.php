@@ -21,7 +21,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adrian Mendez</title>
+    <meta name="description" content="Adrian Mendez Softare Engineer" />
+    <meta name="title" property="og:title" content="Adrian Mendez Software Engineer" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="https://res.cloudinary.com/depf1fnoz/image/upload/v1613008208/Screen_Shot_2021-02-10_at_7.39.42_PM_agkjc3.png" />
+    <meta name="description" property="og:description" content="Adrian Mendez Software Engineer" />
+    <meta name="author" content="Adrian Mendez" />
+    <title>Adrian Mendez - Software Engineer</title>
 
     <!-- https://spreadsheets.google.com/feeds/list/1uX9LdKDyy8BIS8HXQAoLBCbUqhaZgM5nNaFaelV8A0o/1/public/full?alt=json -->
 
@@ -93,13 +99,13 @@
       </div>
       <div id="landing-page">
         <div class="logo">
-          <div class="logo-content">
+          <h1 class="logo-content">
             <div>
               <span>Adrian</span>
               <span>Mendez</span>
             </div>
             <span class="subtext">Software Engineer</span>
-          </div>
+          </h1>
         </div>
       </div>
       <div id="primary-bg">
