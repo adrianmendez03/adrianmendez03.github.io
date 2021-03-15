@@ -107,11 +107,12 @@
             <span class="subtext">Software Engineer</span>
           </h1>
         </div>
+        <a id="download" href="/other/adrianMendezResume.docx" download>Resume</a>
       </div>
       <div id="primary-bg">
         <section class="content-format" >
           <div class="content-header">
-            <h3 id="statement">Statement</h3>
+            <h3 id="statement">About</h3>
             <div class="underline">
               <div></div>
               <div></div>
@@ -234,7 +235,7 @@
       </div>
     </main>
     <footer>
-      <p>&#169 Adrian Mendez 2020</p>
+      <p>&#169 Adrian Mendez 2021</p>
       <ul>
         <li><a href="https://github.com/adrianmendez03" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
         <li><a href="https://www.linkedin.com/in/adrianmendez03/" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a></li>

@@ -236,6 +236,24 @@ nav .menu-background {
   text-align: right;
 }
 
+#download {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+  width: 120px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+#download:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
 /* End of Landing Page */
 
 /* Content */
