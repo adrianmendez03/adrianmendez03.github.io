@@ -107,7 +107,7 @@
             <span class="subtext">Software Engineer</span>
           </h1>
         </div>
-        <a id="download" href="/other/adrianMendezResume.docx" download>Resume</a>
+        <a id="download" href="/other/adrianMendezResume.pdf" download>Resume</a>
       </div>
       <div id="primary-bg">
         <section class="content-format" >
