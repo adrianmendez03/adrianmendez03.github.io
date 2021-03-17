@@ -120,9 +120,10 @@
             </div>
           </div>
           <p>
-            Software Engineer who enjoys solving complex problems with effective solutions. 
-            Determined to write clean, precise code, and design efficient applications. Inspired by an ancestry of craftsmen 
-            to build expressive and intuitive products in the digital space. 
+            Full Stack Developer with over a decade of craftsmanship experience. 
+            I bring a hands-on approach to building useful and intuitive products to 
+            the digital space. My work using various front and back end technologies 
+            enables me to write clean, precise code, and design efficient systems. 
           </p>
         </section>
         <section class="content-format" >
