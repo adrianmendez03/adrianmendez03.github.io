@@ -120,7 +120,7 @@
             </div>
           </div>
           <p>
-            Full Stack Developer with over a decade of craftsmanship experience. 
+            Software Engineer with over a decade of craftsmanship experience. 
             I bring a hands-on approach to building useful and intuitive products to 
             the digital space. My work using various front and back end technologies 
             enables me to write clean, precise code, and design efficient systems. 
