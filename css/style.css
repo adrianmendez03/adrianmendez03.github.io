@@ -70,7 +70,15 @@ nav {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0);
   color: #ffffff;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
+}
+
+.blue-bg {
+  background-color: var(--main);
+}
+
+.white-bg {
+  background-color: var(--secondary);
 }
 
 nav .open-color {
@@ -194,9 +202,9 @@ nav .menu-background {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 110vh;
+  min-height: 100vh;
   position: relative;
-  top: -58px;
+  top: 0px;
   background: linear-gradient(-45deg, var(--main), var(--main), var(--accent), #efa810);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
@@ -263,7 +271,7 @@ nav .menu-background {
 }
 
 #primary-bg section:nth-child(1) {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .content-format {

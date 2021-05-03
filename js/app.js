@@ -24,7 +24,7 @@ $.ajax("https://your-projects-api.herokuapp.com/projects")
 const $logo = $("#logo")
 const $navIcon = $("#nav-icon")
 const $menu = $("#menu")
-let menuOpen = false
+let menuOpen = false, $scrollPos = $(window).scrollTop()
 
 const menuFunctionality = () => {
     if (menuOpen) {
@@ -32,10 +32,17 @@ const menuFunctionality = () => {
         $logo.removeClass("black-text")
         $navIcon.removeClass("open-color")
         menuOpen = false
+        if ($scrollPos > $landingPagePos) {
+            $("nav").addClass("blue-bg")
+        }
+        if ($scrollPos + 54 > $secondaryBgPos) {
+            $("nav").addClass("white-bg")
+        }
     } else {
         $menu.addClass("open")
         $logo.addClass("black-text")
         $navIcon.addClass("open-color")
+        $("nav").removeClass("blue-bg white-bg")
         menuOpen = true
     }
 }
@@ -146,15 +153,29 @@ const filterProjects = category => {
 /// SCROLLING 
 ////////////////////////
 
+const $landingPagePos = window.innerHeight
 const $secondaryBgPos = $("#secondary-bg").position().top
 
 $(window).scroll(() => {
-    let $scrollPos = $(window).scrollTop()
+    $scrollPos = $(window).scrollTop()
+
+    if ($scrollPos > $landingPagePos) {
+        $("nav").addClass("blue-bg")
+    } else {
+        $("nav").removeClass("blue-bg")
+    }
+
+    if ($scrollPos + 108 > $secondaryBgPos) {
+        $("nav").removeClass("blue-bg")
+    }
+
     if ($scrollPos + 54 > $secondaryBgPos) {
         $logo.addClass("dark-text")
         $navIcon.addClass("black-text")
+        $("nav").addClass("white-bg")
     } else {
         $logo.removeClass("dark-text")
         $navIcon.removeClass("black-text")
+        $("nav").removeClass("white-bg")
     }
 })
