@@ -52,6 +52,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 /* *******************************************
 ****** PROJECT STYLES
 ******************************************* */
@@ -269,7 +274,7 @@ nav .menu-background {
   color: var(--secondary);
 }
 
-#primary-bg section:nth-child(1) {
+#primary-bg article:nth-child(1) {
   margin-top: 100px;
 }
 
@@ -345,7 +350,7 @@ nav .menu-background {
 
 /* Projects */
 
-#secondary-bg section:nth-child(1) {
+#secondary-bg article:nth-child(1) {
   padding-top: 100px;
 }
 
@@ -515,7 +520,7 @@ textarea {
   transform: translate(-40px, -15px) scale(0.75);
 }
 
-#secondary-bg section:last-child {
+#secondary-bg article:last-child {
   margin-bottom: 100px;
 }
 
@@ -537,7 +542,7 @@ textarea {
 footer {
   display: flex;
   justify-content: space-between;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, .5);
   background-color: #2a2a2a;
   padding: 25px;
   font-size: 10px;

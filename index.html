@@ -70,7 +70,7 @@
   <body>
     <header>
       <nav>
-        <div id="logo">
+        <section id="logo">
           <div class="logo">
             <a class="logo-content" href="#landing-page">
               <div>
@@ -79,16 +79,16 @@
               <span class="subtext">Software Engineer</span>
             </a>
           </div>
-        </div>
-        <div id="nav-icon">
+        </section>
+        <button id="nav-icon">
           <div class="menu-background top-bottom"></div>
           <div class="menu-background middle"></div>
           <div class="menu-background top-bottom"></div>
-        </div>
+        </button>
       </nav>
     </header>
     <main>
-      <div>
+      <section>
         <ul id="menu">
           <li><a href="#primary-bg">About</a></li> 
           <li><a href="#skills">Skills</a></li>
@@ -96,9 +96,9 @@
           <!-- <li><a href="#about">About</a></li> -->
           <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
-      <div id="landing-page">
-        <div class="logo">
+      </section>
+      <section id="landing-page">
+        <article class="logo">
           <h1 class="logo-content">
             <div>
               <span>Adrian</span>
@@ -106,37 +106,37 @@
             </div>
             <span class="subtext">Software Engineer</span>
           </h1>
-        </div>
+        </article>
         <a id="download" href="/other/adrianMendezResume.pdf" download>Resume</a>
-      </div>
-      <div id="primary-bg">
-        <section class="content-format" >
-          <div class="content-header">
+      </section>
+      <section id="primary-bg">
+        <article class="content-format" >
+          <section class="content-header">
             <h3 id="statement">About</h3>
             <div class="underline">
               <div></div>
               <div></div>
               <div></div>
             </div>
-          </div>
+          </section>
           <p>
             Software Engineer with over a decade of craftsmanship experience. 
             I bring a hands-on approach to building useful and intuitive products to 
             the digital space. My work using various front and back end technologies 
             enables me to write clean, precise code, and design efficient systems. 
           </p>
-        </section>
-        <section class="content-format" >
-          <div class="content-header">
+        </article>
+        <article class="content-format" >
+          <section class="content-header">
             <h3 id="skills">Skills</h3>
             <div class="underline">
               <div></div>
               <div></div>
               <div></div>
             </div>
-          </div>
+          </section>
           <div class="lists-container">
-            <div class="list">
+            <section class="list">
               <h2>Front End</h2>
               <ul>
                 <li><i class="fab fa-html5"></i>HTML5</li>
@@ -146,8 +146,8 @@
                 <li><i class="fab fa-js-square"></i>jQuery</li>
                 <li><i class="fab fa-react"></i>React</li>
               </ul>
-            </div>
-            <div class="list">
+            </section>
+            <section class="list">
               <h2>Back End</h2>
               <ul>
                 <li><i class="fab fa-node"></i>Node.JS</li>
@@ -158,20 +158,20 @@
                 <li><i class="far fa-gem"></i>Rails</li>
                 <li><i class="fas fa-database"></i>PostgresQL</li>
               </ul>
-            </div>
+            </section>
           </div>
-        </section>
-      </div>
-      <div id="secondary-bg">
-        <section class="content-format" >
-          <div class="content-header">
+        </article>
+      </section>
+      <section id="secondary-bg">
+        <article class="content-format" >
+          <section class="content-header">
             <h3 id="projects">Projects</h3>
             <div class="underline">
               <div></div>
               <div></div>
               <div></div>
             </div>
-          </div>
+          </section>
           <!-- <div class="projects-nav">
             <ul class="proj-nav">
               <li id="all">All</li>
@@ -185,7 +185,7 @@
           </div> -->
           <ul class="projects-container">
           </ul>
-        </section>
+        </article>
         <!-- <section class="content-format">
           <div class="content-header" >
             <h3 id="about">About</h3>
@@ -202,16 +202,16 @@
             exercitationem, libero ducimus facere officia aperiam placeat commodi quibusdam suscipit?
           </p>
         </section> -->
-        <section class="content-format" >
-          <div class="content-header">
+        <article class="content-format" >
+          <section class="content-header">
             <h3 id="contact">Contact</h3>
             <div class="underline">
               <div></div>
               <div></div>
               <div></div>
             </div>
-          </div>
-          <div class="form-container">
+          </section>
+          <section class="form-container">
             <form action="contactform.php" method="post">
               <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlspecialchars($name) ?>" required>
               <?php if(isset($name_error)) { ?>
@@ -231,9 +231,9 @@
               <?php } ?>
               <div><button name="submit" type="submit" class="button submit">Send</button></div>
             </form>
-          </div>
-        </section>
-      </div>
+          </section>
+        </article>
+      </section>
     </main>
     <footer>
       <p>&#169 Adrian Mendez 2021</p>
