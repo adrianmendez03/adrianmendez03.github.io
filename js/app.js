@@ -159,7 +159,7 @@ const $secondaryBgPos = $("#secondary-bg").position().top
 $(window).scroll(() => {
     $scrollPos = $(window).scrollTop()
 
-    if ($scrollPos > $landingPagePos) {
+    if ($scrollPos > $landingPagePos && !menuOpen) {
         $("nav").addClass("blue-bg")
     } else {
         $("nav").removeClass("blue-bg")
@@ -169,7 +169,7 @@ $(window).scroll(() => {
         $("nav").removeClass("blue-bg")
     }
 
-    if ($scrollPos + 54 > $secondaryBgPos) {
+    if ($scrollPos + 54 > $secondaryBgPos && !menuOpen) {
         $logo.addClass("dark-text")
         $navIcon.addClass("black-text")
         $("nav").addClass("white-bg")
