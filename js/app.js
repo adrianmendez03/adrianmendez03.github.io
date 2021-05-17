@@ -152,6 +152,12 @@ const $secondaryBgPos = $("#secondary-bg").position().top
 $(window).scroll(() => {
     $scrollPos = $(window).scrollTop()
 
+    if ($scrollPos > $landingPagePos) {
+        $("nav").addClass("blur")
+    } else {
+        $("nav").removeClass("blur")
+    }
+
     if ($scrollPos + 54 > $secondaryBgPos && !menuOpen) {
         $logo.addClass("dark-text")
         $navIcon.addClass("black-text")
