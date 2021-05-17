@@ -32,17 +32,10 @@ const menuFunctionality = () => {
         $logo.removeClass("black-text")
         $navIcon.removeClass("open-color")
         menuOpen = false
-        if ($scrollPos > $landingPagePos) {
-            $("nav").addClass("blue-bg")
-        }
-        if ($scrollPos + 54 > $secondaryBgPos) {
-            $("nav").addClass("white-bg")
-        }
     } else {
         $menu.addClass("open")
         $logo.addClass("black-text")
         $navIcon.addClass("open-color")
-        $("nav").removeClass("blue-bg white-bg")
         menuOpen = true
     }
 }
@@ -159,23 +152,11 @@ const $secondaryBgPos = $("#secondary-bg").position().top
 $(window).scroll(() => {
     $scrollPos = $(window).scrollTop()
 
-    if ($scrollPos > $landingPagePos && !menuOpen) {
-        $("nav").addClass("blue-bg")
-    } else {
-        $("nav").removeClass("blue-bg")
-    }
-
-    if ($scrollPos + 108 > $secondaryBgPos) {
-        $("nav").removeClass("blue-bg")
-    }
-
     if ($scrollPos + 54 > $secondaryBgPos && !menuOpen) {
         $logo.addClass("dark-text")
         $navIcon.addClass("black-text")
-        $("nav").addClass("white-bg")
     } else {
         $logo.removeClass("dark-text")
         $navIcon.removeClass("black-text")
-        $("nav").removeClass("white-bg")
     }
 })
