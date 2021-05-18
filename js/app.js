@@ -49,8 +49,43 @@ $("#menu").children().click(e => {
 })
 
 /////////////////////////////
-/// NAVIGATION ANIMATION
+/// SKILLS SCROLL
 /////////////////////////////
+
+$(() => {
+    const width = window.innerWidth
+
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    const loop = (li, direction) => {
+        li.css({ [direction]: '-100px' })
+        li.animate({ [direction]: width }, 5000, 'linear', () => {
+            loop(li, direction)
+        })
+    }
+
+    const applyAnimations = async (lis, direction) => {
+        const q = [...lis]
+        let time = 0
+        while (q.length > 0) {
+            console.log(q)
+        }
+        // for (let i = 0; i < lis.length; i++) {
+        //     setTimeout(() => {
+        //         loop(lis.eq(i), direction)
+        //     }, time)
+        //     time += 2000
+        // }
+    } 
+
+    const frontEnd = $("#frontend li")
+    const backEnd = $("#backend li")
+
+    applyAnimations(frontEnd, 'left')
+    applyAnimations(backEnd, 'right')
+})
 
 ///////////////////////////////
 //// PROJECT RENDERING 
