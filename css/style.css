@@ -306,17 +306,30 @@ nav .menu-background {
 }
 
 .lists-container h2 {
-  margin: 0 0 15px 0;
   font-size: 18px;
   text-transform: uppercase;
+}
+
+.lists-container .list:nth-child(1) {
+  text-align: left;
+}
+
+.lists-container .list:nth-child(2) {
+  text-align: right;
+}
+
+.list:nth-child(1) .underline {
+  margin-left: 0;
+}
+
+.list:nth-child(2) .underline {
+  margin-right: 0;
 }
 
 .lists-container li {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 0 15px 0;
-  font-size: 16px;
 }
 
 .list ul {
@@ -324,7 +337,7 @@ nav .menu-background {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 180px;
+  height: 225px;
   overflow: hidden;
 }
 
@@ -334,11 +347,15 @@ nav .menu-background {
   height: 80px;
   transform: rotate(45deg);
   background-color: rgba(153, 36, 10, .5);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, 
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .list ul li:hover {
   background-color: var(--accent);
+  transform: scale(1.5) rotate(45deg);
+  box-shadow: 0px 0px 15px 15px rgba(255, 255, 255, 0.25);
 }
 
 .list ul li i,img {

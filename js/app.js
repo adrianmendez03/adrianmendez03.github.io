@@ -67,17 +67,20 @@ $(() => {
         return arr
     }
 
-    const loop = (li, direction) => {
-        li.css({ [direction]: '-150px' })
-        li.animate({ [direction]: width }, 7500, 'linear')
+    const loop = (li, direction, pos) => {
+        const $width = li.width() * -2
+        li.css({ [direction]: $width, transform: `translateY(${pos}) rotate(45deg)` })
+        li.animate({ [direction]: width }, 8000, 'linear')
     }
 
     const applyAnimations = async (arr, direction) => {
+        let pos = '-35px'
         while (arr) {
             const id = arr.shift(), li = $(id)
-            loop(li, direction)
-            await sleep(2000)
+            loop(li, direction, pos)
+            await sleep(1500)
             arr.push(id)
+            pos = pos === '-35px' ? '35px' : '-35px'
         }
     } 
 
