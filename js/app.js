@@ -68,24 +68,17 @@ $(() => {
     }
 
     const loop = (li, direction) => {
-        console.log(li)
-        li.css({ [direction]: '-100px' })
-        li.animate({ [direction]: width }, 5000, 'linear')
+        li.css({ [direction]: '-150px' })
+        li.animate({ [direction]: width }, 7500, 'linear')
     }
 
     const applyAnimations = async (arr, direction) => {
         while (arr) {
-            const id = arr.pop(), li = $(id)
+            const id = arr.shift(), li = $(id)
             loop(li, direction)
             await sleep(2000)
-            arr.unshift(id)
+            arr.push(id)
         }
-        // for (let i = 0; i < lis.length; i++) {
-        //     setTimeout(() => {
-        //         loop(lis.eq(i), direction)
-        //     }, time)
-        //     time += 2000
-        // }
     } 
 
     const frontEnd = generateArr($("#frontend li"))

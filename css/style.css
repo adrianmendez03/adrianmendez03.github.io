@@ -324,21 +324,37 @@ nav .menu-background {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 150px;
+  height: 180px;
   overflow: hidden;
 }
 
 .list ul li {
   position: absolute;
-  width: 100px;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  background-color: rgba(153, 36, 10, .5);
+  transition: background-color 0.3s;
+}
+
+.list ul li:hover {
+  background-color: var(--accent);
+}
+
+.list ul li i,img {
+  transform: rotate(-45deg);
+}
+
+.list ul li i {
+  font-size: 40px;
 }
 
 #frontend li {
-  left: -100px;
+  left: -150px;
 }
 
 #backend li {
-  right: -100px;
+  right: -150px;
 }
 
 /* End of Skills Section */
