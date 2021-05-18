@@ -59,18 +59,26 @@ $(() => {
         return new Promise(resolve => setTimeout(resolve, ms))
     }
 
-    const loop = (li, direction) => {
-        li.css({ [direction]: '-100px' })
-        li.animate({ [direction]: width }, 5000, 'linear', () => {
-            loop(li, direction)
-        })
+    const generateArr = ul => {
+        const arr = []
+        for (let i = 0; i < ul.length; i++) {
+            arr.push("#" + ul.eq(i)[0].id)
+        }
+        return arr
     }
 
-    const applyAnimations = async (lis, direction) => {
-        const q = [...lis]
-        let time = 0
-        while (q.length > 0) {
-            console.log(q)
+    const loop = (li, direction) => {
+        console.log(li)
+        li.css({ [direction]: '-100px' })
+        li.animate({ [direction]: width }, 5000, 'linear')
+    }
+
+    const applyAnimations = async (arr, direction) => {
+        while (arr) {
+            const id = arr.pop(), li = $(id)
+            loop(li, direction)
+            await sleep(2000)
+            arr.unshift(id)
         }
         // for (let i = 0; i < lis.length; i++) {
         //     setTimeout(() => {
@@ -80,8 +88,8 @@ $(() => {
         // }
     } 
 
-    const frontEnd = $("#frontend li")
-    const backEnd = $("#backend li")
+    const frontEnd = generateArr($("#frontend li"))
+    const backEnd = generateArr($("#backend li"))
 
     applyAnimations(frontEnd, 'left')
     applyAnimations(backEnd, 'right')
