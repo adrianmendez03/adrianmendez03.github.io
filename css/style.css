@@ -289,18 +289,10 @@ nav .menu-background {
 }
 
 .underline {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 0 20px 0;
-}
-
-.underline div:nth-child(n) {
-  margin: 8px;
-  height: 5px;
-  width: 5px;
+  margin: 6px auto;
+  height: 6px;
+  max-width: 50px;
   background-color: var(--accent);
-  transform: rotate(45deg);
 }
 
 /* End of Content */
