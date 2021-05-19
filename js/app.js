@@ -53,10 +53,34 @@ $("#menu").children().click(e => {
 /////////////////////////////
 
 $(() => {
-    const width = window.innerWidth
+    const speed  = {
+        animation: 9000,
+        delay: 1100
+    }
+    const $frontEnd = $("#frontend li"), $backEnd = $("#backend li")
+    let frontEnd, backEnd;
 
     const sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    const generateSpeed = () => {
+        const { innerWidth } = window
+        if (innerWidth) {
+            speed.animation = 8500
+            speed.delay = 1200
+        } else if (innerWidth <= 425) {
+            speed.animation = 9000
+            speed.delay = 1100
+        } else if (innerWidth <= 768) {
+            speed.delay = 950
+        } else if (innerWidth <= 1024) {
+            speed.animation = 15000
+            speed.delay = 900
+        } else {
+            speed.animation = 18000
+            speed.delay = 800
+        }
     }
 
     const generateArr = ul => {
@@ -67,28 +91,39 @@ $(() => {
         return arr
     }
 
-    const loop = (li, direction, pos) => {
+    const loop = (li, direction, pos, arr) => {
         const $width = li.width() * -2
         li.css({ [direction]: $width, transform: `translateY(${pos}) rotate(45deg)` })
-        li.animate({ [direction]: width }, 8000, 'linear')
+        li.animate({ [direction]: window.innerWidth }, speed.animation, 'linear', () => {
+            arr.push("#" + li[0].id)
+        })
     }
 
     const applyAnimations = async (arr, direction) => {
+        generateSpeed()
         let pos = '-35px'
         while (arr) {
             const id = arr.shift(), li = $(id)
-            loop(li, direction, pos)
-            await sleep(1500)
-            arr.push(id)
+            console.log(id)
+            loop(li, direction, pos, arr)
+            await sleep(speed.delay)
             pos = pos === '-35px' ? '35px' : '-35px'
         }
     } 
 
-    const frontEnd = generateArr($("#frontend li"))
-    const backEnd = generateArr($("#backend li"))
+    frontEnd = generateArr($frontEnd), backEnd = generateArr($backEnd)
 
     applyAnimations(frontEnd, 'left')
     applyAnimations(backEnd, 'right')
+
+    window.addEventListener('resize', async () => {
+        $("#frontend").empty()
+        $("#backend").empty()
+        generateSpeed()
+        await sleep(speed.delay * Math.max(frontEnd.length, backEnd.length))
+        $("#frontend").append($frontEnd)
+        $("#backend").append($backEnd)
+    })
 })
 
 ///////////////////////////////
