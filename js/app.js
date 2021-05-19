@@ -66,13 +66,14 @@ $(() => {
 
     const generateSpeed = () => {
         const { innerWidth } = window
-        if (innerWidth) {
+        if (innerWidth <= 375) {
             speed.animation = 8500
             speed.delay = 1200
         } else if (innerWidth <= 425) {
             speed.animation = 9000
             speed.delay = 1100
         } else if (innerWidth <= 768) {
+            speed.animation = 12000
             speed.delay = 950
         } else if (innerWidth <= 1024) {
             speed.animation = 15000
@@ -104,7 +105,6 @@ $(() => {
         let pos = '-35px'
         while (arr) {
             const id = arr.shift(), li = $(id)
-            console.log(id)
             loop(li, direction, pos, arr)
             await sleep(speed.delay)
             pos = pos === '-35px' ? '35px' : '-35px'
