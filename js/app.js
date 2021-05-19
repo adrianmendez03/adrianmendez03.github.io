@@ -65,11 +65,11 @@ $(() => {
     }
 
     const generateSpeed = () => {
-        const { innerWidth } = window, 
-            difference = innerWidth - 320,
-            round = Math.floor(difference / 20)
-        speed.animation = innerWidth * (20 - round * .1)
-        speed.delay = innerWidth * (3 - round * .0425)
+        const width = $("#frontend").width(), 
+            difference = width - 230,
+            round = Math.floor(difference / 30)
+        speed.animation = width * (23.5 - round * .000175)
+        speed.delay = width * (3.25 - round * .1)
     }
 
     const generateArr = ul => {
