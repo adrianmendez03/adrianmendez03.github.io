@@ -133,10 +133,11 @@ let $projects
 
 const renderProj  = projects => {
     let i = 0
-    for (project of projects) {
+    for (let project of projects) {
         let j = i
-        const $li = $("<li>").addClass(`${project.tech}`)
-        const $div = $("<div>").addClass("project")
+        const $li = $("<li>").addClass("cube left-end x")
+        const $face1 = $("<div>").addClass(`face ${project.tech}`)
+        const $face2 = $("<div>").addClass("face project")
         const $content = $("<div>").addClass("project-content")
         $content.html(
             `
@@ -150,9 +151,10 @@ const renderProj  = projects => {
             renderModal(projects[j])
         })
         $content.append($button)
-        $div.append($content)
-        $li.css("background-image", `url(${project.img})`)
-        $li.append($div)
+        $face2.append($content)
+        $face1.css("background-image", `url(${project.img})`)
+        $li.append($face1)
+        $li.append($face2)
         $projContainer.append($li)
         i++
     }
