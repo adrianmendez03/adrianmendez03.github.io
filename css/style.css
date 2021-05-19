@@ -169,9 +169,7 @@ nav .menu-background {
   width: 100vw;
   height: 100vh;
   color: #000;
-  background: linear-gradient(-45deg, var(--main), var(--secondary), var(--secondary));
-  background-size: 150% 150%;
-  background-position: 100% 75%;
+  background-color: var(--secondary);
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s;
@@ -280,8 +278,9 @@ nav .menu-background {
   padding: 0 45px 100px 45px;
 }
 
-.content-format h3 {
+.content-format h3, h2 {
   text-transform: uppercase;
+  font-size: 18px;
   letter-spacing: 1px;
 }
 
