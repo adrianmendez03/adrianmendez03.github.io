@@ -65,23 +65,11 @@ $(() => {
     }
 
     const generateSpeed = () => {
-        const { innerWidth } = window
-        if (innerWidth <= 375) {
-            speed.animation = 8500
-            speed.delay = 1200
-        } else if (innerWidth <= 425) {
-            speed.animation = 9000
-            speed.delay = 1100
-        } else if (innerWidth <= 768) {
-            speed.animation = 12000
-            speed.delay = 950
-        } else if (innerWidth <= 1024) {
-            speed.animation = 15000
-            speed.delay = 900
-        } else {
-            speed.animation = 18000
-            speed.delay = 800
-        }
+        const { innerWidth } = window, 
+            difference = innerWidth - 320,
+            round = Math.floor(difference / 20)
+        speed.animation = innerWidth * (20 - round * .1)
+        speed.delay = innerWidth * (3 - round * .0425)
     }
 
     const generateArr = ul => {
@@ -102,9 +90,19 @@ $(() => {
 
     const applyAnimations = async (arr, direction) => {
         generateSpeed()
-        let pos = '-35px'
+        let pos = '-35px', nullCount = 0
         while (arr) {
-            const id = arr.shift(), li = $(id)
+            const id = arr.shift() 
+            let li;
+            if (id) {
+                li = $(id)
+            } else {
+                const div = $("<div>").append("<div>")
+                li = $("<li>").attr('id', direction + nullCount).addClass('null-li').append(div)
+                if (direction === 'left') $("#frontend").append(li)
+                else $("#backend").append(li)
+                nullCount++
+            }
             loop(li, direction, pos, arr)
             await sleep(speed.delay)
             pos = pos === '-35px' ? '35px' : '-35px'

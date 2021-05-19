@@ -379,6 +379,20 @@ nav .menu-background {
   font-size: 40px;
 }
 
+.list ul li.null-li {
+  background-color: var(--main);
+}
+
+.list ul li.null-li div {
+  padding: 8px;
+  background-color: rgba(153, 36, 10, .5);
+}
+
+.list ul li.null-li div div {
+  padding: 8px;
+  background-color: var(--secondary);
+}
+
 #frontend li {
   left: -150px;
 }
