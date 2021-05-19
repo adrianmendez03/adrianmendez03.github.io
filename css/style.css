@@ -368,7 +368,7 @@ nav .menu-background {
 .list ul li:hover {
   background-color: var(--accent);
   transform: scale(1.5) rotate(45deg);
-  box-shadow: 0px 0px 15px 15px rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 8px 8px rgba(255, 255, 255, 0.25);
 }
 
 .list ul li i,img {
@@ -381,6 +381,10 @@ nav .menu-background {
 
 .list ul li.null-li {
   background-color: var(--main);
+}
+
+.list ul li.null-li:hover {
+  box-shadow: none;
 }
 
 .list ul li.null-li div {

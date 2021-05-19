@@ -68,8 +68,8 @@ $(() => {
         const width = $("#frontend").width(), 
             difference = width - 230,
             round = Math.floor(difference / 30)
-        speed.animation = width * (23.5 - round * .000175)
-        speed.delay = width * (3.25 - round * .1)
+        speed.animation = width * (30 - round * .6)
+        speed.delay = width * (3.75 - round * .1375)
     }
 
     const generateArr = ul => {
@@ -81,9 +81,9 @@ $(() => {
     }
 
     const loop = (li, direction, pos, arr) => {
-        const $width = li.width() * -2
-        li.css({ [direction]: $width, transform: `translateY(${pos}) rotate(45deg)` })
-        li.animate({ [direction]: window.innerWidth }, speed.animation, 'linear', () => {
+        const $width = li.width() * 2
+        li.css({ [direction]: $width * -1, transform: `translateY(${pos}) rotate(45deg)` })
+        li.animate({ [direction]: $("#frontend").width() + $width }, speed.animation, 'linear', () => {
             arr.push("#" + li[0].id)
         })
     }
