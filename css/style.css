@@ -444,6 +444,11 @@ nav .menu-background {
   transition: transform 1s;
 }
 
+.cube .face:first-child {
+  background-position: center;
+  background-size: cover;
+}
+
 .face {
   position: absolute;
   width: 100%;
