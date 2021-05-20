@@ -211,8 +211,8 @@ $(() => {
     }
 
     const skillsAnimationLoop = (li, direction, pos, arr) => {
-        const $liWidth = li.width() * 2
-        li.css({ [direction]: $liWidth * -1, transform: `translateY(${pos}) rotate(45deg)` })
+        const $liWidth = li.width() * 2, threeD = direction === 'left' ? 'rotate3d(1, 0, 0, 25deg)' : 'rotate3d(0, 1, 0, -25deg)'
+        li.css({ [direction]: $liWidth * -1, transform: `translateY(${pos}) rotate(45deg) ${threeD}` })
         li.animate({ [direction]: $("#frontend").width() + $liWidth }, speed.animation, 'linear', () => {
             arr.push("#" + li[0].id)
         })
@@ -252,7 +252,7 @@ $(() => {
     $(window).scroll(() => {
         const $landingPagePos = window.innerHeight
         const $secondaryBgPos = $("#secondary-bg").position().top
-        
+
         $scrollPos = $(window).scrollTop()
     
         if ($scrollPos > $landingPagePos) {

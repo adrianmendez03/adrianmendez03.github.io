@@ -66,7 +66,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -351,23 +351,21 @@ nav .menu-background {
   align-items: center;
   height: 100%;
   overflow: hidden;
+  perspective: 1500px;
 }
 
 .list ul li {
   position: absolute;
   width: 80px;
   height: 80px;
-  transform: rotate(45deg);
   background-color: rgba(153, 36, 10, .5);
   transition: background-color 0.3s, 
-    transform 0.3s,
     box-shadow 0.3s;
 }
 
 .list ul li:hover {
   background-color: var(--accent);
-  transform: scale(1.5) rotate(45deg);
-  box-shadow: 0px 0px 8px 8px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, .5);
 }
 
 .list ul li i,img {
@@ -379,7 +377,7 @@ nav .menu-background {
 }
 
 .list ul li.null-li {
-  background-color: var(--main);
+  background-color: transparent;
 }
 
 .list ul li.null-li:hover {
@@ -736,6 +734,17 @@ footer ul li:hover {
     background-position: 10% 10%;
   }
 }
+
+@keyframes float {
+  from {
+    perspective: 10px;
+    transform: translateZ(0);
+  } to {
+    perspective: 10px;
+    transform: translateZ(-10px);
+  }
+}
+
 
 /*  */
 
