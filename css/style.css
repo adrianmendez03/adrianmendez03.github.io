@@ -447,6 +447,7 @@ nav .menu-background {
 .cube .face:first-child {
   background-position: center;
   background-size: cover;
+  z-index: 1;
 }
 
 .face {
@@ -459,12 +460,6 @@ nav .menu-background {
 
 .project {
   background-color: var(--secondary);
-}
-
-.gone {
-  display: none;
-  transform: scale(0.25);
-  transition: all 0.3s;
 }
 
 .project-content {
@@ -492,6 +487,8 @@ nav .menu-background {
   margin: auto;
   font-size: 14px;
 }
+
+/* Project animation */
 
 .left-end .face:first-child {
   transform: rotateY(90deg) translateX(50%) rotateY(-90deg);
@@ -528,6 +525,8 @@ nav .menu-background {
 .y:hover {
   transform: translateZ(-100px) rotateX(90deg);
 }
+
+/* End of Projects Animation */
 
 /* End of Projects */
 
