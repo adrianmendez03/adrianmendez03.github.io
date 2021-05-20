@@ -4,13 +4,18 @@ $(() => {
     /// GLOBAL HELPERES
     ///////////////////////////////////    
 
-
+    const fetchDisplay = () => {
+        const { innerWidth } = window
+        if (innerWidth < 630) return 'phone'
+        else if (innerWidth < 900) return 'tablet'
+        else return 'desktop'
+    }
 
     /////////////////////////////////////
     /// FETCH PROJECTS FROM PROJECTS API
     ////////////////////////////////////
 
-    let projects, cubePossibilities;
+    let projects, cubePossibilities, display = fetchDisplay();
 
     $.ajax("https://your-projects-api.herokuapp.com/projects")
         .then(data => {
@@ -74,7 +79,7 @@ $(() => {
     const generateCubePossibilites = () => {
         let tabletCount = 0, desktopCount = 0;
         const possibilites = { 
-            phone: new Array(projects.length).fill(['x', 'middle-top']), 
+            phone: new Array(projects.length).fill('y middle-top'), 
             tablet: [], 
             desktop: [] 
         }, mid = Math.floor(projects.length / 2) - 1
@@ -84,23 +89,23 @@ $(() => {
             const topOrBottom = i <= mid ? 'middle-top' : 'middle-bottom'
             switch (tabletCount) {
                 case 0:
-                    tablet.push(['x', 'left-end'])
+                    tablet.push('x left-end')
                     break
                 case 1: 
-                    tablet.push(['x', 'right-end'])
+                    tablet.push('x right-end')
                     break
                 default:
                     break
             }
             switch (desktopCount) {
                 case 0:
-                    desktop.push(['x', 'left-end'])
+                    desktop.push('x left-end')
                     break
                 case 1:
-                    desktop.push(['y', topOrBottom])
+                    desktop.push('y ' + topOrBottom)
                     break
                 case 2:
-                    desktop.push(['x', 'right-end'])
+                    desktop.push('x right-end')
                     break
             }
             tabletCount++, desktopCount++
@@ -111,15 +116,21 @@ $(() => {
     }
 
     const $projContainer = $(".projects-container")
-    let $projects;
+    let prevDisplay = null
 
-    const applyCubeAnimations = () => {
-
+    const applyCubeAnimations = ($projects) => {
+        if (prevDisplay === display) return
+        console.log() 
+        for (let i = 0; i < $projects.length; i++) {
+            $projects.eq(i).removeClass().addClass('cube')
+            $projects.eq(i).addClass(cubePossibilities[display][i])
+        }
+        prevDisplay = display
     }
         
     const renderProj  = projects => {
         projects.forEach((project, index) => {
-            const $li = $("<li>").addClass("cube")
+            const $li = $("<li>")
             const $face1 = $("<div>").addClass(`face ${project.tech}`)
             const $face2 = $("<div>").addClass("face project")
             const $content = $("<div>").addClass("project-content")
@@ -141,7 +152,7 @@ $(() => {
             $li.append($face2)
             $projContainer.append($li)
         })
-        $projects = $projContainer.children()
+        applyCubeAnimations($projContainer.children())
     }
         
     const renderModal = project => {
@@ -184,11 +195,11 @@ $(() => {
     }
 
     const generateSpeed = () => {
-        const width = $("#frontend").width(), 
-            difference = width - 230,
+        const listWidth = $("#frontend").width(), 
+            difference = listWidth - 230,
             round = Math.floor(difference / 30)
-        speed.animation = width * (30 - round * .6)
-        speed.delay = width * (3.75 - round * .1375)
+        speed.animation = listWidth * (30 - round * .6)
+        speed.delay = listWidth * (3.75 - round * .1375)
     }
 
     const generateArr = ul => {
@@ -199,10 +210,10 @@ $(() => {
         return arr
     }
 
-    const loop = (li, direction, pos, arr) => {
-        const $width = li.width() * 2
-        li.css({ [direction]: $width * -1, transform: `translateY(${pos}) rotate(45deg)` })
-        li.animate({ [direction]: $("#frontend").width() + $width }, speed.animation, 'linear', () => {
+    const skillsAnimationLoop = (li, direction, pos, arr) => {
+        const $liWidth = li.width() * 2
+        li.css({ [direction]: $liWidth * -1, transform: `translateY(${pos}) rotate(45deg)` })
+        li.animate({ [direction]: $("#frontend").width() + $liWidth }, speed.animation, 'linear', () => {
             arr.push("#" + li[0].id)
         })
     }
@@ -222,7 +233,7 @@ $(() => {
                 else $("#backend").append(li)
                 nullCount++
             }
-            loop(li, direction, pos, arr)
+            skillsAnimationLoop(li, direction, pos, arr)
             await sleep(speed.delay)
             pos = pos === '-35px' ? '35px' : '-35px'
         }
@@ -237,10 +248,11 @@ $(() => {
     /// WINDOW SCROLL 
     ////////////////////
 
-    const $landingPagePos = window.innerHeight
-    const $secondaryBgPos = $("#secondary-bg").position().top
     
     $(window).scroll(() => {
+        const $landingPagePos = window.innerHeight
+        const $secondaryBgPos = $("#secondary-bg").position().top
+        
         $scrollPos = $(window).scrollTop()
     
         if ($scrollPos > $landingPagePos) {
@@ -259,6 +271,8 @@ $(() => {
     })
 
     window.addEventListener('resize', async () => {
+        display = fetchDisplay()
+        applyCubeAnimations($projContainer.children())
         $("#frontend").empty()
         $("#backend").empty()
         generateSpeed()
