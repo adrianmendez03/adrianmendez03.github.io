@@ -1,10 +1,16 @@
 $(() => {
 
+    ///////////////////////////////////    
+    /// GLOBAL HELPERES
+    ///////////////////////////////////    
+
+
+
     /////////////////////////////////////
     /// FETCH PROJECTS FROM PROJECTS API
     ////////////////////////////////////
 
-    let projects;
+    let projects, cubePossibilities;
 
     $.ajax("https://your-projects-api.herokuapp.com/projects")
         .then(data => {
@@ -18,6 +24,7 @@ $(() => {
                     tech: project.tech
                 }
             })
+            cubePossibilities = generateCubePossibilites(projects)
             renderProj(projects)
         })
 
@@ -56,8 +63,59 @@ $(() => {
     /// RENDER THE PROJECTS
     ////////////////////////////////////
 
+
+    // This function will create an obj that will look like this:
+    // const possibilites = {
+    //     phone: [pos, pos, pos]
+    //     tablet: [pos, pos, pos]
+    //     desktop: [pos, pos, pos]
+    // }
+
+    const generateCubePossibilites = () => {
+        let tabletCount = 0, desktopCount = 0;
+        const possibilites = { 
+            phone: new Array(projects.length).fill(['x', 'middle-top']), 
+            tablet: [], 
+            desktop: [] 
+        }, mid = Math.floor(projects.length / 2) - 1
+
+        for (let i = 0; i < projects.length; i++) {
+            const { tablet, desktop } = possibilites
+            const topOrBottom = i <= mid ? 'middle-top' : 'middle-bottom'
+            switch (tabletCount) {
+                case 0:
+                    tablet.push(['x', 'left-end'])
+                    break
+                case 1: 
+                    tablet.push(['x', 'right-end'])
+                    break
+                default:
+                    break
+            }
+            switch (desktopCount) {
+                case 0:
+                    desktop.push(['x', 'left-end'])
+                    break
+                case 1:
+                    desktop.push(['y', topOrBottom])
+                    break
+                case 2:
+                    desktop.push(['x', 'right-end'])
+                    break
+            }
+            tabletCount++, desktopCount++
+            if (tabletCount > 1) tabletCount = 0
+            if (desktopCount > 2) desktopCount = 0
+        }
+        return possibilites
+    }
+
     const $projContainer = $(".projects-container")
-    let $projects
+    let $projects;
+
+    const applyCubeAnimations = () => {
+
+    }
         
     const renderProj  = projects => {
         projects.forEach((project, index) => {
@@ -149,7 +207,7 @@ $(() => {
         })
     }
 
-    const applyAnimations = async (arr, direction) => {
+    const applySkillsAnimations = async (arr, direction) => {
         generateSpeed()
         let pos = '-35px', nullCount = 0
         while (arr) {
@@ -172,8 +230,8 @@ $(() => {
 
     frontEnd = generateArr($frontEnd), backEnd = generateArr($backEnd)
 
-    applyAnimations(frontEnd, 'left')
-    applyAnimations(backEnd, 'right')
+    applySkillsAnimations(frontEnd, 'left')
+    applySkillsAnimations(backEnd, 'right')
 
     ////////////////////
     /// WINDOW SCROLL 
@@ -201,7 +259,6 @@ $(() => {
     })
 
     window.addEventListener('resize', async () => {
-        renderProj(projects)
         $("#frontend").empty()
         $("#backend").empty()
         generateSpeed()
