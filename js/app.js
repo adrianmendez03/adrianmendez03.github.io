@@ -76,9 +76,8 @@ $(() => {
             tablet: [], 
             desktop: [] 
         }, mid = Math.floor(projects.length / 2) - 1
-
+        const { tablet, desktop } = possibilites
         for (let i = 0; i < projects.length; i++) {
-            const { tablet, desktop } = possibilites
             const topOrBottom = i <= mid ? 'middle-top' : 'middle-bottom'
             switch (tabletCount) {
                 case 0:
@@ -106,17 +105,11 @@ $(() => {
             if (desktopCount > 2) desktopCount = 0
         }
         for (let i = 0; i < projects.length % 3; i++) {
-            const { desktop } = possibilites, index = desktop.length - 1 - i
-            switch (i) {
-                case 0:
-                    desktop[index] = ('x right-end')
-                    break
-                case 1: 
-                    desktop[length] = ('x left-end')
-                    break
-                default:
-                    break
-            }
+            const index = desktop.length - 1 - i
+            desktop[index] = 'y middle-bottom'
+        }
+        if (projects.length % 2 === 1) {
+            tablet[projects.length - 1] = 'y middle-bottom'
         }
         return possibilites
     }
@@ -157,9 +150,7 @@ $(() => {
                 `
             )
             const $button = $("<div>").addClass("project-content-bottom button").text("Learn More")
-            $button.click(e => {
-                renderModal(project)
-            })
+            $button.click(() =>showModal(project))
             $content.append($button)
             $face2.append($content)
             $face1.css("background-image", `url(${project.image})`)
@@ -169,28 +160,20 @@ $(() => {
         })
         applyCubeAnimations($projContainer.children())
     }
+
+    /////////////////////////
+    /// MODAL FUNCTIONAILTY
+    /////////////////////////
+
+    const formatModal = (project) => {
+        const $modalBg = $("#modal-bg")
+        $modalBg.css({ background: `url(${project.image})` })
+    }
         
-    const renderModal = project => {
-        const $modal = $("<div>").addClass("modal")
-        const $modalContent = $("<div>").addClass("modal-container").css("background", `url(${project.image})`)
-        $modalContent.html(
-            `
-                <div class="modal-content">
-                    <div>
-                        <p class="modal-header">${project.name}</p>
-                        <p class="modal-desc">${project.description}</p>
-                    </div>
-                    <div class="modal-links">
-                        <a class="button" href="${project.demo}" target="_blank">Live Demo</a>
-                        <a class="button" href="${project.repo}" target="_blank">View Code</a>
-                    </div>
-                </div>
-            `
-        )
-        $modalContent.click(e => e.stopPropagation())
-        $modal.click(e => $modal.remove())
-        $modal.append($modalContent)
-        $("body").append($modal)
+    const showModal = (project) => {
+        formatModal(project)
+        const $modalBg = $("#darkness")
+        $modalBg.css({ bottom: '0', opacity: '1' })
     }
 
     //////////////////////
@@ -260,9 +243,9 @@ $(() => {
     // applySkillsAnimations(frontEnd, 'left')
     // applySkillsAnimations(backEnd, 'right')
 
-    ////////////////////
-    /// WINDOW SCROLL 
-    ////////////////////
+    ///////////////////////////////////
+    /// WINDOW SCROLL & EVENT LISTENERS
+    //////////////////////////////////
 
     
     $(window).scroll(() => {
@@ -286,6 +269,7 @@ $(() => {
         }
     })
 
+    $("#darkness").click(() => $("#darkness").css({ bottom: '-100vh'}))
     window.addEventListener('resize', async () => {
         display = fetchDisplay()
         applyCubeAnimations($projContainer.children())

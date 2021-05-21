@@ -623,61 +623,81 @@ footer ul li:hover {
 
 /* MODAL */
 
-.modal {
+#darkness {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
+  bottom: -100vh;
   height: 100vh;
   width: 100%;
+  padding: 16px;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 10;
+  opacity: 0;
+  transition: bottom .3s ease-out, opacity .5s ease-in;
 }
 
-.modal-container {
-  height: 600px;
-  width: 300px;
+#modal-bg {
   background-position: center !important;
   background-size: cover !important;
 }
 
-.modal-content {
+#modal {
+  min-width: 200px;
+  max-width: 500px;
+  padding: 12px 12px 12px 12px;
+  background-color: rgba(255, 255, 255, .7);
+  text-align: left;
+}
+
+#modal .underline {
+  margin: 0;
+}
+
+#modal h3, h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#modal img {
+  filter: brightness(0%);
+}
+
+#modal-header, #description {
+  margin-bottom: 12px;
+}
+
+#modal-header h3 {
+  margin: 0;
+}
+
+#links #modal-header .underline, #stack #modal-header .underline{
+  width: 30px;
+}
+
+#tech {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.80);
-  backdrop-filter: blur(5px);
 }
 
-.modal-header {
-  margin: 10px;
-  font-weight: bold;
+#tech img, i {
+  transform: none;
 }
 
-.modal-desc {
-  margin-top: 20px;
-  padding: 0 20px;
-  font-size: 14px;
+#links a {
+  padding: 5px;
 }
 
-.modal-links {
+#links a:first-child {
+  margin: 0 10px;
+}
+
+#links div {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 250px;
-  font-size: 14px;
-  margin-bottom: 15px;
+  justify-content: flex-end;
 }
-
-.modal-links .button {
-  font-size: 12px;
-  padding: 6px 12px;
-}
-
 
 /* END OF MODAL */
 
