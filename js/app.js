@@ -124,7 +124,7 @@ $(() => {
     const $projContainer = $(".projects-container")
     let prevDisplay = null
 
-    const applyCubeAnimations = ($projects) => {
+    const applyCubeAnimations = async ($projects) => {
         if (prevDisplay === display) return
         for (let i = 0; i < $projects.length; i++) {
             $projects.eq(i).removeClass().addClass('cube')
@@ -134,6 +134,12 @@ $(() => {
             const index = $projects.length - 1 - i
             $projects.eq(index).css("z-index", 3)
         }
+        $("#frontend").empty()
+        $("#backend").empty()
+        speed = generateSpeed()
+        await sleep(speed.delay)
+        $("#frontend").append($frontEnd)
+        $("#backend").append($backEnd)
         prevDisplay = display
     }
         
@@ -191,10 +197,6 @@ $(() => {
     /// SKILLS ANIMATIONS
     //////////////////////
 
-    const speed  = {
-        animation: 9000,
-        delay: 1100
-    }
 
     const $frontEnd = $("#frontend li"), $backEnd = $("#backend li")
     let frontEnd, backEnd;
@@ -205,11 +207,15 @@ $(() => {
 
     const generateSpeed = () => {
         const listWidth = $("#frontend").width(), 
-            difference = listWidth - 230,
-            round = Math.floor(difference / 30)
-        speed.animation = listWidth * (30 - round * .6)
-        speed.delay = listWidth * (3.75 - round * .1375)
+            difference = listWidth - 335,
+            round = Math.floor(difference / 25)
+        return {
+            animation: listWidth * (40 - round * .75),
+            delay: listWidth * (5.5 - round * .200)
+        }
     }
+
+    let speed  = generateSpeed()
 
     const generateArr = ul => {
         const arr = []
@@ -219,39 +225,40 @@ $(() => {
         return arr
     }
 
-    const skillsAnimationLoop = (li, direction, pos, arr) => {
+    const skillsAnimationLoop = (li, direction, pos, arr, isNull) => {
         const $liWidth = li.width() * 2, threeD = direction === 'left' ? 'rotate3d(1, 0, 0, 25deg)' : 'rotate3d(0, 1, 0, -25deg)'
         li.css({ [direction]: $liWidth * -1, transform: `translateY(${pos}) rotate(45deg) ${threeD}` })
-        li.animate({ [direction]: $("#frontend").width() + $liWidth }, speed.animation, 'linear', () => {
-            arr.push("#" + li[0].id)
+        li.animate({ [direction]: $("#frontend").width() + $liWidth / 2 }, speed.animation, 'linear', () => {
+            if (isNull) li.remove()
+            else arr.push("#" + li[0].id)
         })
     }
 
-    const applySkillsAnimations = async (arr, direction) => {
-        generateSpeed()
-        let pos = '-35px', nullCount = 0
-        while (arr) {
-            const id = arr.shift() 
-            let li;
-            if (id) {
-                li = $(id)
-            } else {
-                const div = $("<div>").append("<div>")
-                li = $("<li>").attr('id', direction + nullCount).addClass('null-li').append(div)
-                if (direction === 'left') $("#frontend").append(li)
-                else $("#backend").append(li)
-                nullCount++
-            }
-            skillsAnimationLoop(li, direction, pos, arr)
-            await sleep(speed.delay)
-            pos = pos === '-35px' ? '35px' : '-35px'
+    const applySkillsAnimations = async (arr, direction, pos = '35px', nullCount = 0) => {
+        const id = arr.shift() 
+        let li, isNull = false;
+        if (id) {
+            li = $(id)
+        } else {
+            isNull = true
+            const div = $("<div>").append("<div>")
+            li = $("<li>").addClass('null-li').append(div)
+            if (direction === 'left') $("#frontend").append(li)
+            else $("#backend").append(li)
         }
+        skillsAnimationLoop(li, direction, pos, arr, isNull)
+        pos = pos === '-35px' ? '35px' : '-35px'
+        setTimeout(() => applySkillsAnimations(arr, direction, pos, nullCount), speed.delay)
     } 
 
     frontEnd = generateArr($frontEnd), backEnd = generateArr($backEnd)
 
-    applySkillsAnimations(frontEnd, 'left')
-    applySkillsAnimations(backEnd, 'right')
+    setTimeout(() => {
+        applySkillsAnimations(frontEnd, 'left')
+        applySkillsAnimations(backEnd, 'right')
+    }, 2500)
+    // applySkillsAnimations(frontEnd, 'left')
+    // applySkillsAnimations(backEnd, 'right')
 
     ////////////////////
     /// WINDOW SCROLL 
@@ -282,11 +289,5 @@ $(() => {
     window.addEventListener('resize', async () => {
         display = fetchDisplay()
         applyCubeAnimations($projContainer.children())
-        $("#frontend").empty()
-        $("#backend").empty()
-        generateSpeed()
-        await sleep(speed.delay * Math.max(frontEnd.length, backEnd.length))
-        $("#frontend").append($frontEnd)
-        $("#backend").append($backEnd)
     })
 })
