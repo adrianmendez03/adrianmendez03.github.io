@@ -165,9 +165,32 @@ $(() => {
     /// MODAL FUNCTIONAILTY
     /////////////////////////
 
+
     const formatModal = (project) => {
-        const $modalBg = $("#modal-bg")
-        $modalBg.css({ background: `url(${project.image})` })
+        const icons ={
+            jquery: ['img', './icons/jquery.svg'],
+            react: ['i', 'fab fa-react'],
+            nodejs: ['i', 'fab fa-node'],
+            expressjs: ['img', './icons/expressjs.svg'],
+            mongodb: ['img', './icons/mongodb.svg'],
+            python: ['i', 'fab fa-python'],
+            rubyonrails: ['img', './icons/rubyonrails.svg'],
+            postgres: ['img', './icons/postgres.svg'],
+            mysql: ['img', './icons/mysql.svg']
+        }
+        const { image, name, description, frontend, server, database } = project
+        $("#modal-bg").css({ background: `url(${image})` })
+        $(".modal-header h3").text(name)
+        $("#description p").text(description)
+        const stack = [frontend, server, database]
+        for (let i = 0; i < stack.length; i++) {
+            const tech = stack[i]
+            if (tech) {
+                
+            } else {
+                break
+            }
+        }
     }
         
     const showModal = (project) => {
@@ -270,6 +293,7 @@ $(() => {
     })
 
     $("#darkness").click(() => $("#darkness").css({ bottom: '-100vh'}))
+    $("#modal-bg").click(e => e.stopPropagation())
     window.addEventListener('resize', async () => {
         display = fetchDisplay()
         applyCubeAnimations($projContainer.children())
