@@ -20,14 +20,7 @@ $(() => {
     $.ajax("https://your-projects-api.herokuapp.com/projects")
         .then(data => {
             projects = data.map(project => {
-                return {
-                    name: project.name,
-                    img: project.image,
-                    desc: project.description,
-                    live: project.demo, 
-                    github: project.repo,
-                    tech: project.tech
-                }
+                return {...project}
             })
             cubePossibilities = generateCubePossibilites(projects)
             renderProj(projects)
@@ -112,6 +105,19 @@ $(() => {
             if (tabletCount > 1) tabletCount = 0
             if (desktopCount > 2) desktopCount = 0
         }
+        for (let i = 0; i < projects.length % 3; i++) {
+            const { desktop } = possibilites, index = desktop.length - 1 - i
+            switch (i) {
+                case 0:
+                    desktop[index] = ('x right-end')
+                    break
+                case 1: 
+                    desktop[length] = ('x left-end')
+                    break
+                default:
+                    break
+            }
+        }
         return possibilites
     }
 
@@ -120,10 +126,13 @@ $(() => {
 
     const applyCubeAnimations = ($projects) => {
         if (prevDisplay === display) return
-        console.log() 
         for (let i = 0; i < $projects.length; i++) {
             $projects.eq(i).removeClass().addClass('cube')
             $projects.eq(i).addClass(cubePossibilities[display][i])
+        }
+        for (let i = 0; i < $projects.length % 3; i++) {
+            const index = $projects.length - 1 - i
+            $projects.eq(index).css("z-index", 3)
         }
         prevDisplay = display
     }
@@ -131,7 +140,7 @@ $(() => {
     const renderProj  = projects => {
         projects.forEach((project, index) => {
             const $li = $("<li>")
-            const $face1 = $("<div>").addClass(`face ${project.tech}`)
+            const $face1 = $("<div>").addClass(`face`)
             const $face2 = $("<div>").addClass("face project")
             const $content = $("<div>").addClass("project-content")
             $content.html(
@@ -147,7 +156,7 @@ $(() => {
             })
             $content.append($button)
             $face2.append($content)
-            $face1.css("background-image", `url(${project.img})`)
+            $face1.css("background-image", `url(${project.image})`)
             $li.append($face1)
             $li.append($face2)
             $projContainer.append($li)
@@ -157,17 +166,17 @@ $(() => {
         
     const renderModal = project => {
         const $modal = $("<div>").addClass("modal")
-        const $modalContent = $("<div>").addClass("modal-container").css("background", `url(${project.img})`)
+        const $modalContent = $("<div>").addClass("modal-container").css("background", `url(${project.image})`)
         $modalContent.html(
             `
                 <div class="modal-content">
                     <div>
                         <p class="modal-header">${project.name}</p>
-                        <p class="modal-desc">${project.desc}</p>
+                        <p class="modal-desc">${project.description}</p>
                     </div>
                     <div class="modal-links">
-                        <a class="button" href="${project.live}" target="_blank">Live Demo</a>
-                        <a class="button" href="${project.github}" target="_blank">View Code</a>
+                        <a class="button" href="${project.demo}" target="_blank">Live Demo</a>
+                        <a class="button" href="${project.repo}" target="_blank">View Code</a>
                     </div>
                 </div>
             `
