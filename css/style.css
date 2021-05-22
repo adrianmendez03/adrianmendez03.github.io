@@ -19,7 +19,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* outline: 2px solid gold; */
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,6 +49,10 @@ ul {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+p {
+  font-size: 18px;
 }
 
 button {
@@ -602,7 +605,10 @@ footer {
   color: rgba(255, 255, 255, .5);
   background-color: #2a2a2a;
   padding: 25px;
-  font-size: 10px;
+}
+
+footer p {
+  font-size: 16px;
 }
 
 footer ul {
@@ -644,7 +650,7 @@ footer ul li:hover {
 }
 
 #modal {
-  min-width: 260px;
+  min-width: 300px;
   max-width: 500px;
   padding: 12px 12px 12px 12px;
   background-color: rgba(255, 255, 255, .85);
@@ -664,7 +670,7 @@ footer ul li:hover {
   filter: brightness(0%);
 }
 
-.modal-header, #description {
+.modal-header, #description, #tech {
   margin-bottom: 12px;
 }
 
@@ -683,6 +689,10 @@ footer ul li:hover {
 
 #tech img, i {
   transform: none;
+}
+
+#tech i {
+  font-size: 28px;
 }
 
 #links a {

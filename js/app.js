@@ -167,26 +167,40 @@ $(() => {
 
 
     const formatModal = (project) => {
-        const icons ={
+        const icons = {
             jquery: ['img', './icons/jquery.svg'],
             react: ['i', 'fab fa-react'],
             nodejs: ['i', 'fab fa-node'],
-            expressjs: ['img', './icons/expressjs.svg'],
+            express: ['img', './icons/expressjs.svg'],
             mongodb: ['img', './icons/mongodb.svg'],
             python: ['i', 'fab fa-python'],
             rubyonrails: ['img', './icons/rubyonrails.svg'],
             postgres: ['img', './icons/postgres.svg'],
             mysql: ['img', './icons/mysql.svg']
         }
-        const { image, name, description, frontend, server, database } = project
+
+        const { image, name, description, frontend, server, database, demo, repo } = project
+
+        $("#tech").empty()
         $("#modal-bg").css({ background: `url(${image})` })
         $(".modal-header h3").text(name)
         $("#description p").text(description)
+        $("#repo").attr('href', repo)
+        $("#demo").attr('href', demo)
+
         const stack = [frontend, server, database]
+
         for (let i = 0; i < stack.length; i++) {
             const tech = stack[i]
             if (tech) {
-                
+                const techInfo = icons[tech], $el = $(`<${techInfo[0]}>`), $li = $("<li>")
+                if (techInfo[0] === 'i') {
+                    $el.addClass(techInfo[1])
+                } else {
+                    $el.attr('width', '80px').attr('src', techInfo[1])
+                }
+                $li.append($el)
+                $("#tech").append($li)
             } else {
                 break
             }
